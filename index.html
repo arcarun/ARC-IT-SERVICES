@@ -2,102 +2,130 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A R COMPUTERS IT SERVICES | Premium Tech Solutions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>A R COMPUTERS IT SERVICES</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* --- GLOBAL STYLES --- */
+        /* --- GLOBAL VARIABLES --- */
         :root {
-            --primary: #00d2ff;
-            --secondary: #3a7bd5;
+            /* 9. Brand Color Updated */
+            --primary: #2596be; 
             --dark: #0f0c29;
-            --dark-glass: rgba(15, 12, 41, 0.9);
+            --dark-glass: rgba(15, 12, 41, 0.95);
             --text: #ffffff;
             --glass: rgba(255, 255, 255, 0.1);
             --border: rgba(255, 255, 255, 0.2);
-            --whatsapp: #25D366;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             font-family: 'Poppins', sans-serif;
             background-color: var(--dark);
             color: var(--text);
             overflow-x: hidden;
+            padding-top: 100px; /* Space for fixed header */
         }
 
-        h1, h2, h3 {
-            font-family: 'Orbitron', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* --- NAVIGATION --- */
-        nav {
+        /* --- 10. HEADER LAYOUT --- */
+        header {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            padding: 15px 50px;
+            height: 90px;
+            background: var(--dark-glass);
+            border-bottom: 2px solid var(--primary);
+            z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: var(--dark-glass);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--border);
+            padding: 0 20px;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.5rem;
-            font-weight: bold;
+        /* Top Left: Logo */
+        .header-left img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Top Center: Company Name & Service */
+        .header-center {
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .header-center h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
             color: var(--primary);
-            text-shadow: 0 0 10px var(--primary);
+            letter-spacing: 1px;
+            margin: 0;
+            line-height: 1.2;
         }
 
-        .logo img {
-            height: 50px; /* Adjust logo size */
-            border-radius: 5px;
+        .header-divider {
+            height: 2px;
+            background-color: var(--text);
+            width: 100%;
+            margin: 2px 0;
         }
 
-        .nav-links a {
+        .header-center h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
             color: var(--text);
-            text-decoration: none;
-            margin-left: 30px;
-            font-weight: 500;
-            transition: 0.3s;
+            letter-spacing: 2px;
+            margin: 0;
         }
 
-        .nav-links a:hover {
+        /* Top Right: Menu Button */
+        .header-right {
+            font-size: 1.8rem;
+            cursor: pointer;
             color: var(--primary);
-            text-shadow: 0 0 5px var(--primary);
         }
 
-        /* --- HERO SECTION WITH VIDEO --- */
+        /* Dropdown Menu (Hidden by default) */
+        .nav-menu {
+            display: none;
+            position: fixed;
+            top: 90px;
+            right: 0;
+            background: var(--dark-glass);
+            width: 200px;
+            border-left: 1px solid var(--primary);
+            border-bottom: 1px solid var(--primary);
+        }
+
+        .nav-menu.active { display: block; }
+
+        .nav-menu a {
+            display: block;
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* --- HERO SECTION --- */
         .hero {
             position: relative;
-            height: 100vh;
+            height: 60vh; /* Reduced height to show content sooner */
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
             overflow: hidden;
         }
 
+        /* 4. Video Visibility Fix */
         #bg-video {
             position: absolute;
             top: 0;
@@ -106,562 +134,408 @@
             height: 100%;
             object-fit: cover;
             z-index: -1;
-            filter: brightness(0.4);
+            opacity: 0.6;
         }
 
-        .hero-content {
-            z-index: 2;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, #00d2ff, #ffffff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            padding: 12px 30px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: 0.3s;
-            box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
-            display: inline-block;
-        }
-
-        .btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 40px rgba(0, 210, 255, 0.8);
-        }
-
-        /* --- FLOATING ACTION BUTTONS (Call & WhatsApp) --- */
-        .floating-buttons {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 2000;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .float-btn {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 28px;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            transition: 0.3s;
-            border: 2px solid rgba(255,255,255,0.2);
-            position: relative;
-        }
-
-        .float-btn:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Tooltip text */
-        .float-btn::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            right: 70px;
-            background: rgba(0,0,0,0.8);
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 12px;
-            opacity: 0;
-            pointer-events: none;
-            transition: 0.3s;
-            white-space: nowrap;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .float-btn:hover::after {
-            opacity: 1;
-        }
-
-        .whatsapp-float {
-            background-color: var(--whatsapp);
-        }
-
-        .call-float {
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-        }
-
-        /* --- SERVICES (3D CARDS) --- */
-        .section {
-            padding: 80px 10%;
-        }
-
+        /* --- 3. SERVICES (VERTICAL STACK) --- */
+        .section { padding: 40px 15px; }
+        
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 60px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
             color: var(--primary);
-            text-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+            margin-bottom: 40px;
         }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        /* Vertical Stack for Desktop & Mobile */
+        .services-container {
+            display: flex;
+            flex-direction: column; /* Stack one below another */
+            gap: 30px;
+            max-width: 800px; /* Limit width for desktop */
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        /* 4. Image Visibility Fix */
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            border: 1px solid var(--primary);
+        }
+
+        .service-card h3 { color: var(--primary); margin-bottom: 10px; }
+
+        /* --- MARQUEE --- */
+        .marquee-box {
+            background: rgba(255,255,255,0.1);
+            padding: 20px 0;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .marquee-content {
+            display: flex;
+            width: max-content;
             gap: 30px;
         }
 
-        .card {
-            background: var(--glass);
-            border: 1px solid var(--border);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            transform-style: preserve-3d;
-            transform: perspective(1000px);
-            transition: 0.5s;
-        }
-        
-        .card:hover {
-            border-color: var(--primary);
-        }
-
-        .card-img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            transform: translateZ(30px); /* 3D effect */
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-        }
-
-        .card h3 {
-            margin-bottom: 15px;
-            transform: translateZ(30px);
-            color: var(--primary);
-        }
-
-        .card p {
-            font-size: 0.9rem;
-            color: #ddd;
-            transform: translateZ(20px);
-        }
-
-        /* --- MARQUEE (LOGOS) --- */
-        .marquee-section {
-            padding: 40px 0;
-            background: rgba(0,0,0,0.6);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 20px;
-        }
-        
-        .marquee-title {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #aaa;
-            font-size: 1.2rem;
-        }
-
-        .marquee-wrapper {
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-        }
-
-        .marquee-content {
-            display: inline-block;
-        }
-
-        .marquee-item {
-            display: inline-block;
-            width: 140px;
-            height: 90px;
-            background: white;
-            margin: 0 20px;
-            border-radius: 10px;
-            vertical-align: middle;
-            padding: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
-            transition: 0.3s;
-        }
-
-        .marquee-item:hover {
-            transform: scale(1.1);
-        }
-        
         .marquee-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+            height: 60px;
+            width: auto;
+            background: white;
+            padding: 5px;
+            border-radius: 5px;
         }
 
-        /* Right to Left Animation (Continuous) */
-        .scroll-rl {
-            animation: scrollLeft 35s linear infinite;
-        }
-        
-        /* Left to Right Animation (Continuous) */
-        .scroll-lr {
-            animation: scrollRight 35s linear infinite;
+        .scroll-left { animation: scrollLeft 20s linear infinite; }
+        .scroll-right { animation: scrollRight 20s linear infinite; }
+
+        @keyframes scrollLeft { 100% { transform: translateX(-50%); } }
+        @keyframes scrollRight { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+
+        /* --- CONTACT SECTION --- */
+        .contact-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        @keyframes scrollLeft {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); } /* Moves half the duplicated width */
+        /* 6. Separate Contact Info Section */
+        .contact-details-box {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+            margin-bottom: 30px;
+            text-align: left;
         }
 
-        @keyframes scrollRight {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
-        }
-
-        /* --- CONTACT & MAP --- */
-        .contact-container {
+        .contact-row {
+            margin-bottom: 15px;
             display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.95rem;
         }
 
-        .contact-form, .map-container {
-            flex: 1;
-            min-width: 320px;
+        .contact-row i { color: var(--primary); margin-top: 4px; }
+
+        /* 5. Compact Form */
+        .form-box {
             background: var(--glass);
-            padding: 40px;
-            border-radius: 15px;
+            padding: 20px;
+            border-radius: 10px;
             border: 1px solid var(--border);
-            backdrop-filter: blur(10px);
         }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        input, textarea {
+        input, select, textarea {
             width: 100%;
-            padding: 15px;
-            background: rgba(0,0,0,0.5);
-            border: 1px solid #444;
+            padding: 10px;
+            margin-bottom: 15px;
+            background: rgba(0,0,0,0.6);
+            border: 1px solid #555;
             color: white;
-            border-radius: 8px;
-            outline: none;
+            border-radius: 5px;
             font-family: 'Poppins', sans-serif;
         }
 
-        input:focus, textarea:focus {
+        input:focus, select:focus, textarea:focus {
+            outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
         }
 
-        .contact-info {
+        button.submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary);
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* 7. Map Size Fix */
+        .map-box {
             margin-top: 30px;
-            border-top: 1px solid var(--border);
-            padding-top: 20px;
-        }
-        .contact-info p {
-            margin: 15px 0;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 1rem;
-        }
-        
-        .contact-info i {
-            color: var(--primary);
-            font-size: 1.2rem;
-            width: 25px;
-            text-align: center;
+            height: 250px; /* Fixed small height */
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border);
         }
 
         /* --- FOOTER --- */
         footer {
             background: #000;
-            padding: 40px 10%;
             text-align: center;
-            border-top: 1px solid var(--border);
-            font-size: 0.9rem;
-            color: #888;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid #333;
         }
 
-        .footer-logo {
-            color: var(--primary);
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            display: block;
-        }
-
+        /* 8. Footer Credit Style */
         .dev-credit {
-            margin-top: 25px;
-            padding-top: 15px;
-            border-top: 1px solid #222;
+            font-size: 10px;
+            color: #808080;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .dev-credit a { color: #808080; text-decoration: none; }
+
+        /* --- FLOATING BUTTONS --- */
+        .floating-btns {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 2000;
         }
 
-        .dev-credit a {
-            color: var(--primary);
+        .float-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 26px;
             text-decoration: none;
-            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            transition: transform 0.2s;
         }
 
-        /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.2rem; }
-            nav { padding: 15px 20px; flex-direction: column; gap: 15px; }
-            .nav-links { display: flex; flex-wrap: wrap; justify-content: center; }
-            .nav-links a { margin: 5px 10px; font-size: 0.9rem; }
-            .contact-container { flex-direction: column; }
-            .marquee-item { width: 100px; height: 60px; margin: 0 10px; }
+        .float-icon:hover { transform: scale(1.1); }
+        .wa-btn { background-color: #25D366; }
+        .call-btn { background-color: var(--primary); }
+
+        /* Media Query for Mobile Text Sizing */
+        @media (max-width: 480px) {
+            .header-center h1 { font-size: 1rem; }
+            .header-center h2 { font-size: 0.7rem; }
+            .header-left img { height: 45px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="floating-buttons">
-        <a href="https://wa.me/919702777737" target="_blank" class="float-btn whatsapp-float" data-tooltip="Chat on WhatsApp">
+    <header>
+        <div class="header-left">
+            <img src="mylogo.png" alt="Logo">
+        </div>
+        <div class="header-center">
+            <h1>A R COMPUTERS</h1>
+            <div class="header-divider"></div>
+            <h2>IT SERVICES</h2>
+        </div>
+        <div class="header-right" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <div class="nav-menu" id="navMenu">
+        <a href="#home" onclick="toggleMenu()">Home</a>
+        <a href="#services" onclick="toggleMenu()">Services</a>
+        <a href="#clients" onclick="toggleMenu()">Clients</a>
+        <a href="#contact" onclick="toggleMenu()">Contact</a>
+    </div>
+
+    <div class="floating-btns">
+        <a href="https://wa.me/919702777737?text=Hello,%20I%20have%20an%20inquiry%20regarding%20your%20IT%20services." target="_blank" class="float-icon wa-btn">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="tel:+918080802999" class="float-btn call-float" data-tooltip="Call Now">
+        <a href="tel:+918080802999" class="float-icon call-btn">
             <i class="fas fa-phone-alt"></i>
         </a>
     </div>
-
-    <nav>
-        <div class="logo">
-            <img src="mylogo.png" alt="AR Computers Logo"> 
-            A R COMPUTERS
-        </div>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#clients">Clients</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
 
     <section class="hero" id="home">
         <video autoplay muted loop playsinline id="bg-video">
             <source src="topbanner.mp4" type="video/mp4">
         </video>
-        
-        <div class="hero-content" data-aos="zoom-in">
-            <h1>Expert IT Solutions</h1>
-            <p>AMC | Rentals | Networking | Hardware Repair</p>
-            <a href="#contact" class="btn">Get a Quote</a>
-        </div>
     </section>
 
     <section class="section" id="services">
-        <h2 class="section-title" data-aos="fade-up">Our Services</h2>
-        
-        <div class="services-grid">
-            <div class="card" data-tilt>
-                <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a783?q=80&w=600&auto=format&fit=crop" alt="AMC" class="card-img">
-                <h3>AMC Services</h3>
-                <p>Annual Maintenance Contracts to keep your business running smooth.</p>
-            </div>
-
-            <div class="card" data-tilt>
-                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop" alt="Rentals" class="card-img">
-                <h3>IT Rentals</h3>
-                <p>Laptops & Desktops for Rent. High configuration available.</p>
-            </div>
-
-            <div class="card" data-tilt>
-                <img src="https://images.unsplash.com/photo-1597872252721-24642f56f47b?q=80&w=600&auto=format&fit=crop" alt="Repair" class="card-img">
-                <h3>Hardware Repair</h3>
-                <p>Chip-level repairing for Motherboards, Laptops & Printers.</p>
-            </div>
-
-            <div class="card" data-tilt>
-                <img src="https://images.unsplash.com/photo-1558494949-efc535b5c4c1?q=80&w=600&auto=format&fit=crop" alt="Networking" class="card-img">
-                <h3>Networking</h3>
-                <p>LAN/WAN Setup, Server Management & Security Solutions.</p>
-            </div>
-
-            <div class="card" data-tilt>
-                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop" alt="Email" class="card-img">
-                <h3>Business Email</h3>
-                <p>G-Suite & Outlook configuration for professional communication.</p>
-            </div>
-
-            <div class="card" data-tilt>
-                <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?q=80&w=600&auto=format&fit=crop" alt="Sales" class="card-img">
-                <h3>Sales</h3>
-                <p>New & Refurbished Laptops, Desktops and Accessories.</p>
-            </div>
+        <h2 class="section-title">OUR SERVICES</h2>
+        <div class="services-container">
             
-             <div class="card" data-tilt>
-                <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=600&auto=format&fit=crop" alt="Design" class="card-img">
-                <h3>3D Web Design</h3>
-                <p>Premium website development with modern 3D animations.</p>
+            <div class="service-card" data-aos="fade-up">
+                <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a783?q=80&w=600" alt="AMC">
+                <h3>AMC SERVICES</h3>
             </div>
+
+            <div class="service-card" data-aos="fade-up">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600" alt="RENTALS">
+                <h3>RENTALS</h3>
+            </div>
+
+            <div class="service-card" data-aos="fade-up">
+                <img src="https://images.unsplash.com/photo-1597872252721-24642f56f47b?q=80&w=600" alt="HARDWARE REPAIR">
+                <h3>HARDWARE REPAIR</h3>
+            </div>
+
+            <div class="service-card" data-aos="fade-up">
+                <img src="https://images.unsplash.com/photo-1558494949-efc535b5c4c1?q=80&w=600" alt="NETWORKING">
+                <h3>NETWORKING</h3>
+            </div>
+
+            <div class="service-card" data-aos="fade-up">
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600" alt="BUSINESS EMAIL">
+                <h3>BUSINESS EMAIL</h3>
+            </div>
+
+            <div class="service-card" data-aos="fade-up">
+                <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?q=80&w=600" alt="SALES">
+                <h3>SALES</h3>
+            </div>
+
+             <div class="service-card" data-aos="fade-up">
+                <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=600" alt="3D DESIGN">
+                <h3>3D WEBSITE DESIGN</h3>
+            </div>
+
         </div>
     </section>
 
-    <div class="marquee-section" id="clients">
-        <h3 class="marquee-title">Our Valued Clients</h3>
-        <div class="marquee-wrapper">
-            <div class="marquee-content scroll-rl">
-                <div class="marquee-item"><img src="client1.jpeg" alt="Client 1"></div>
-                <div class="marquee-item"><img src="client2.jpeg" alt="Client 2"></div>
-                <div class="marquee-item"><img src="client3.jpeg" alt="Client 3"></div>
-                <div class="marquee-item"><img src="client4.jpeg" alt="Client 4"></div>
-                <div class="marquee-item"><img src="client5.jpeg" alt="Client 5"></div>
-                <div class="marquee-item"><img src="client6.jpeg" alt="Client 6"></div>
-                <div class="marquee-item"><img src="client7.png" alt="Client 7"></div>
-                <div class="marquee-item"><img src="client8.jpg" alt="Client 8"></div>
-                <div class="marquee-item"><img src="client9.png" alt="Client 9"></div>
-                <div class="marquee-item"><img src="client10.gif" alt="Client 10"></div>
-                <div class="marquee-item"><img src="client11.png" alt="Client 11"></div>
-                <div class="marquee-item"><img src="client12.png" alt="Client 12"></div>
-                <div class="marquee-item"><img src="client13.jpg" alt="Client 13"></div>
-                <div class="marquee-item"><img src="client14.png" alt="Client 14"></div>
-                <div class="marquee-item"><img src="client15.png" alt="Client 15"></div>
-                <div class="marquee-item"><img src="client16.png" alt="Client 16"></div>
-                <div class="marquee-item"><img src="client17.jpg" alt="Client 17"></div>
-
-                <div class="marquee-item"><img src="client1.jpeg" alt="Client 1"></div>
-                <div class="marquee-item"><img src="client2.jpeg" alt="Client 2"></div>
-                <div class="marquee-item"><img src="client3.jpeg" alt="Client 3"></div>
-                <div class="marquee-item"><img src="client4.jpeg" alt="Client 4"></div>
-                <div class="marquee-item"><img src="client5.jpeg" alt="Client 5"></div>
-                <div class="marquee-item"><img src="client6.jpeg" alt="Client 6"></div>
-                <div class="marquee-item"><img src="client7.png" alt="Client 7"></div>
-                <div class="marquee-item"><img src="client8.jpg" alt="Client 8"></div>
-                <div class="marquee-item"><img src="client9.png" alt="Client 9"></div>
-                <div class="marquee-item"><img src="client10.gif" alt="Client 10"></div>
-                <div class="marquee-item"><img src="client11.png" alt="Client 11"></div>
-                <div class="marquee-item"><img src="client12.png" alt="Client 12"></div>
-                <div class="marquee-item"><img src="client13.jpg" alt="Client 13"></div>
-                <div class="marquee-item"><img src="client14.png" alt="Client 14"></div>
-                <div class="marquee-item"><img src="client15.png" alt="Client 15"></div>
-                <div class="marquee-item"><img src="client16.png" alt="Client 16"></div>
-                <div class="marquee-item"><img src="client17.jpg" alt="Client 17"></div>
-            </div>
+    <div class="marquee-box" id="clients">
+        <div class="marquee-content scroll-left">
+            <div class="marquee-item"><img src="client1.jpeg"></div>
+            <div class="marquee-item"><img src="client2.jpeg"></div>
+            <div class="marquee-item"><img src="client3.jpeg"></div>
+            <div class="marquee-item"><img src="client4.jpeg"></div>
+            <div class="marquee-item"><img src="client5.jpeg"></div>
+            <div class="marquee-item"><img src="client6.jpeg"></div>
+            <div class="marquee-item"><img src="client7.png"></div>
+            <div class="marquee-item"><img src="client8.jpg"></div>
+            <div class="marquee-item"><img src="client9.png"></div>
+            <div class="marquee-item"><img src="client10.gif"></div>
+            <div class="marquee-item"><img src="client11.png"></div>
+            <div class="marquee-item"><img src="client12.png"></div>
+            <div class="marquee-item"><img src="client13.jpg"></div>
+            <div class="marquee-item"><img src="client14.png"></div>
+            <div class="marquee-item"><img src="client15.png"></div>
+            <div class="marquee-item"><img src="client16.png"></div>
+            <div class="marquee-item"><img src="client17.jpg"></div>
+            <div class="marquee-item"><img src="client1.jpeg"></div>
+            <div class="marquee-item"><img src="client2.jpeg"></div>
+            <div class="marquee-item"><img src="client3.jpeg"></div>
+            <div class="marquee-item"><img src="client4.jpeg"></div>
+            <div class="marquee-item"><img src="client5.jpeg"></div>
         </div>
     </div>
 
-    <div class="marquee-section">
-        <h3 class="marquee-title">Technology Partners</h3>
-        <div class="marquee-wrapper">
-            <div class="marquee-content scroll-lr">
-                <div class="marquee-item"><img src="partner1.png" alt="Partner 1"></div>
-                <div class="marquee-item"><img src="partner2.png" alt="Partner 2"></div>
-                <div class="marquee-item"><img src="partner3.jpeg" alt="Partner 3"></div>
-                <div class="marquee-item"><img src="partner4.png" alt="Partner 4"></div>
-                <div class="marquee-item"><img src="partner5.png" alt="Partner 5"></div>
-                <div class="marquee-item"><img src="partner6.png" alt="Partner 6"></div>
-                <div class="marquee-item"><img src="partner7.png" alt="Partner 7"></div>
-                <div class="marquee-item"><img src="partner8.jpeg" alt="Partner 8"></div>
-                <div class="marquee-item"><img src="partner9.jpg" alt="Partner 9"></div>
-                <div class="marquee-item"><img src="partner10.png" alt="Partner 10"></div>
-                <div class="marquee-item"><img src="partner11.png" alt="Partner 11"></div>
-                <div class="marquee-item"><img src="partner12.jpg" alt="Partner 12"></div>
-
-                <div class="marquee-item"><img src="partner1.png" alt="Partner 1"></div>
-                <div class="marquee-item"><img src="partner2.png" alt="Partner 2"></div>
-                <div class="marquee-item"><img src="partner3.jpeg" alt="Partner 3"></div>
-                <div class="marquee-item"><img src="partner4.png" alt="Partner 4"></div>
-                <div class="marquee-item"><img src="partner5.png" alt="Partner 5"></div>
-                <div class="marquee-item"><img src="partner6.png" alt="Partner 6"></div>
-                <div class="marquee-item"><img src="partner7.png" alt="Partner 7"></div>
-                <div class="marquee-item"><img src="partner8.jpeg" alt="Partner 8"></div>
-                <div class="marquee-item"><img src="partner9.jpg" alt="Partner 9"></div>
-                <div class="marquee-item"><img src="partner10.png" alt="Partner 10"></div>
-                <div class="marquee-item"><img src="partner11.png" alt="Partner 11"></div>
-                <div class="marquee-item"><img src="partner12.jpg" alt="Partner 12"></div>
-            </div>
+    <div class="marquee-box">
+        <div class="marquee-content scroll-right">
+            <div class="marquee-item"><img src="partner1.png"></div>
+            <div class="marquee-item"><img src="partner2.png"></div>
+            <div class="marquee-item"><img src="partner3.jpeg"></div>
+            <div class="marquee-item"><img src="partner4.png"></div>
+            <div class="marquee-item"><img src="partner5.png"></div>
+            <div class="marquee-item"><img src="partner6.png"></div>
+            <div class="marquee-item"><img src="partner7.png"></div>
+            <div class="marquee-item"><img src="partner8.jpeg"></div>
+            <div class="marquee-item"><img src="partner9.jpg"></div>
+            <div class="marquee-item"><img src="partner10.png"></div>
+            <div class="marquee-item"><img src="partner11.png"></div>
+            <div class="marquee-item"><img src="partner12.jpg"></div>
+            <div class="marquee-item"><img src="partner1.png"></div>
+            <div class="marquee-item"><img src="partner2.png"></div>
+            <div class="marquee-item"><img src="partner3.jpeg"></div>
+            <div class="marquee-item"><img src="partner4.png"></div>
         </div>
     </div>
 
     <section class="section" id="contact">
-        <h2 class="section-title" data-aos="fade-down">Contact Us</h2>
-        <div class="contact-container">
+        <div class="contact-wrapper">
             
-            <div class="contact-form" data-aos="fade-right">
-                <h3>Get In Touch</h3>
-                <form action="https://api.web3forms.com/submit" method="POST">
-                    <input type="hidden" name="access_key" value="70e86b97-b7fd-4ffc-a0b3-fd606e551c5b">
-                    <input type="hidden" name="redirect" value="https://web3forms.com/success">
-                    
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="phone" placeholder="Mobile Number" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn" style="border:none; cursor:pointer; width:100%;">Send Message</button>
-                </form>
+            <h2 class="section-title">CONTACT US</h2>
 
-                <div class="contact-info">
-                    <p><i class="fas fa-map-marker-alt"></i> A R COMPUTERS, 1st floor, Group No.1, Tagore Nagar, Vikhroli East, Mumbai - 400083.</p>
-                    <p><i class="fas fa-phone"></i> +91 8080802999 / 9320932044</p>
-                    <p><i class="fas fa-envelope"></i> info@abuit.in</p>
+            <div class="contact-details-box">
+                <div class="contact-row">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        8080802999<br>
+                        9320932044<br>
+                        9702777737
+                    </div>
+                </div>
+                <div class="contact-row">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@abuit.in</span>
+                </div>
+                <div class="contact-row">
+                    <i class="fas fa-clock"></i>
+                    <span>9:30 AM to 6:30 PM</span>
+                </div>
+                <div class="contact-row">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>A R COMPUTERS - 1st floor, Group No.1, Tagore Nagar, Vikhroli East, Mumbai - 400083.</span>
                 </div>
             </div>
 
-            <div class="map-container" data-aos="fade-left">
-                <iframe 
-                    width="100%" 
-                    height="100%" 
-                    style="border:0; min-height: 450px; border-radius: 10px;" 
-                    loading="lazy" 
-                    allowfullscreen
-                    src="https://www.google.com/maps?q=A+R+COMPUTERS+Tagore+Nagar+Vikhroli+East+Mumbai+400083&output=embed">
-                </iframe>
+            <div class="form-box">
+                <form action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="70e86b97-b7fd-4ffc-a0b3-fd606e551c5b">
+                    <input type="hidden" name="redirect" value="https://web3forms.com/success">
+
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="text" name="phone" placeholder="Mobile Number" required>
+                    
+                    <select name="service_type" required>
+                        <option value="" disabled selected>Select Service</option>
+                        <option value="AMC">AMC</option>
+                        <option value="Rental">Rentals</option>
+                        <option value="Repair">Hardware Repair</option>
+                        <option value="Networking">Networking</option>
+                        <option value="Email">Business Email</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <textarea name="message" rows="3" placeholder="Message (Optional)"></textarea>
+                    
+                    <button type="submit" class="submit-btn">SEND INQUIRY</button>
+                </form>
             </div>
+
+            <div class="map-box">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.645963955684!2d72.9298457752066!3d19.12317768209088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c7c000000001%3A0x6b4f74618776632f!2sA%20R%20COMPUTERS!5e0!3m2!1sen!2sin!4v1707240000000!5m2!1sen!2sin" 
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
         </div>
     </section>
 
     <footer>
-        <span class="footer-logo">A R COMPUTERS</span>
-        <p>Your Trusted IT Partner in Mumbai.</p>
-        <div style="margin-top:20px;">
-            <a href="#home" style="color:#aaa; margin:0 10px; text-decoration:none;">Home</a> | 
-            <a href="#services" style="color:#aaa; margin:0 10px; text-decoration:none;">Services</a> | 
-            <a href="#" style="color:#aaa; margin:0 10px; text-decoration:none;">Privacy Policy</a>
-        </div>
-        
         <div class="dev-credit">
             This website developed by <a href="https://www.knoxit.in" target="_blank">www.knoxit.in</a>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
-    
     <script>
-        // Initialize AOS Animation
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
+        AOS.init({ duration: 800, once: true });
 
-        // Initialize 3D Tilt Effect
-        VanillaTilt.init(document.querySelectorAll(".card"), {
-            max: 15,
-            speed: 400,
-            glare: true,
-            "max-glare": 0.3,
-        });
+        function toggleMenu() {
+            var menu = document.getElementById("navMenu");
+            menu.classList.toggle("active");
+        }
     </script>
 </body>
 </html>
