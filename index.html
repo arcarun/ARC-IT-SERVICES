@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A R COMPUTERS IT SERVICES | Premium Tech Solutions</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* --- GLOBAL STYLES --- */
+        :root {
+            --primary: #00d2ff;
+            --secondary: #3a7bd5;
+            --dark: #0f0c29;
+            --dark-glass: rgba(15, 12, 41, 0.9);
+            --text: #ffffff;
+            --glass: rgba(255, 255, 255, 0.1);
+            --border: rgba(255, 255, 255, 0.2);
+            --whatsapp: #25D366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--dark-glass);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-shadow: 0 0 10px var(--primary);
+        }
+
+        .logo img {
+            height: 50px; /* Adjust logo size */
+            border-radius: 5px;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            text-shadow: 0 0 5px var(--primary);
+        }
+
+        /* --- HERO SECTION WITH VIDEO --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        #bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(0.4);
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #00d2ff, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px rgba(0, 210, 255, 0.8);
+        }
+
+        /* --- FLOATING ACTION BUTTONS (Call & WhatsApp) --- */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .float-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            transition: 0.3s;
+            border: 2px solid rgba(255,255,255,0.2);
+            position: relative;
+        }
+
+        .float-btn:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Tooltip text */
+        .float-btn::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            right: 70px;
+            background: rgba(0,0,0,0.8);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.3s;
+            white-space: nowrap;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .float-btn:hover::after {
+            opacity: 1;
+        }
+
+        .whatsapp-float {
+            background-color: var(--whatsapp);
+        }
+
+        .call-float {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+        }
+
+        /* --- SERVICES (3D CARDS) --- */
+        .section {
+            padding: 80px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--primary);
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+            transition: 0.5s;
+        }
+        
+        .card:hover {
+            border-color: var(--primary);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transform: translateZ(30px); /* 3D effect */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            transform: translateZ(30px);
+            color: var(--primary);
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #ddd;
+            transform: translateZ(20px);
+        }
+
+        /* --- MARQUEE (LOGOS) --- */
+        .marquee-section {
+            padding: 40px 0;
+            background: rgba(0,0,0,0.6);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 20px;
+        }
+        
+        .marquee-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #aaa;
+            font-size: 1.2rem;
+        }
+
+        .marquee-wrapper {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .marquee-content {
+            display: inline-block;
+        }
+
+        .marquee-item {
+            display: inline-block;
+            width: 140px;
+            height: 90px;
+            background: white;
+            margin: 0 20px;
+            border-radius: 10px;
+            vertical-align: middle;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            transition: 0.3s;
+        }
+
+        .marquee-item:hover {
+            transform: scale(1.1);
+        }
+        
+        .marquee-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Right to Left Animation (Continuous) */
+        .scroll-rl {
+            animation: scrollLeft 35s linear infinite;
+        }
+        
+        /* Left to Right Animation (Continuous) */
+        .scroll-lr {
+            animation: scrollRight 35s linear infinite;
+        }
+
+        @keyframes scrollLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } /* Moves half the duplicated width */
+        }
+
+        @keyframes scrollRight {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* --- CONTACT & MAP --- */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .contact-form, .map-container {
+            flex: 1;
+            min-width: 320px;
+            background: var(--glass);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid #444;
+            color: white;
+            border-radius: 8px;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+        }
+        .contact-info p {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1rem;
+        }
+        
+        .contact-info i {
+            color: var(--primary);
+            font-size: 1.2rem;
+            width: 25px;
+            text-align: center;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #000;
+            padding: 40px 10%;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .footer-logo {
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .dev-credit {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid #222;
+        }
+
+        .dev-credit a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            nav { padding: 15px 20px; flex-direction: column; gap: 15px; }
+            .nav-links { display: flex; flex-wrap: wrap; justify-content: center; }
+            .nav-links a { margin: 5px 10px; font-size: 0.9rem; }
+            .contact-container { flex-direction: column; }
+            .marquee-item { width: 100px; height: 60px; margin: 0 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="floating-buttons">
+        <a href="https://wa.me/919702777737" target="_blank" class="float-btn whatsapp-float" data-tooltip="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+918080802999" class="float-btn call-float" data-tooltip="Call Now">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+    </div>
+
+    <nav>
+        <div class="logo">
+            <img src="mylogo.png" alt="AR Computers Logo"> 
+            A R COMPUTERS
+        </div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#clients">Clients</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="topbanner.mp4" type="video/mp4">
+        </video>
+        
+        <div class="hero-content" data-aos="zoom-in">
+            <h1>Expert IT Solutions</h1>
+            <p>AMC | Rentals | Networking | Hardware Repair</p>
+            <a href="#contact" class="btn">Get a Quote</a>
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <h2 class="section-title" data-aos="fade-up">Our Services</h2>
+        
+        <div class="services-grid">
+            <div class="card" data-tilt>
+                <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a783?q=80&w=600&auto=format&fit=crop" alt="AMC" class="card-img">
+                <h3>AMC Services</h3>
+                <p>Annual Maintenance Contracts to keep your business running smooth.</p>
+            </div>
+
+            <div class="card" data-tilt>
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop" alt="Rentals" class="card-img">
+                <h3>IT Rentals</h3>
+                <p>Laptops & Desktops for Rent. High configuration available.</p>
+            </div>
+
+            <div class="card" data-tilt>
+                <img src="https://images.unsplash.com/photo-1597872252721-24642f56f47b?q=80&w=600&auto=format&fit=crop" alt="Repair" class="card-img">
+                <h3>Hardware Repair</h3>
+                <p>Chip-level repairing for Motherboards, Laptops & Printers.</p>
+            </div>
+
+            <div class="card" data-tilt>
+                <img src="https://images.unsplash.com/photo-1558494949-efc535b5c4c1?q=80&w=600&auto=format&fit=crop" alt="Networking" class="card-img">
+                <h3>Networking</h3>
+                <p>LAN/WAN Setup, Server Management & Security Solutions.</p>
+            </div>
+
+            <div class="card" data-tilt>
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop" alt="Email" class="card-img">
+                <h3>Business Email</h3>
+                <p>G-Suite & Outlook configuration for professional communication.</p>
+            </div>
+
+            <div class="card" data-tilt>
+                <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?q=80&w=600&auto=format&fit=crop" alt="Sales" class="card-img">
+                <h3>Sales</h3>
+                <p>New & Refurbished Laptops, Desktops and Accessories.</p>
+            </div>
+            
+             <div class="card" data-tilt>
+                <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=600&auto=format&fit=crop" alt="Design" class="card-img">
+                <h3>3D Web Design</h3>
+                <p>Premium website development with modern 3D animations.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="marquee-section" id="clients">
+        <h3 class="marquee-title">Our Valued Clients</h3>
+        <div class="marquee-wrapper">
+            <div class="marquee-content scroll-rl">
+                <div class="marquee-item"><img src="client1.jpeg" alt="Client 1"></div>
+                <div class="marquee-item"><img src="client2.jpeg" alt="Client 2"></div>
+                <div class="marquee-item"><img src="client3.jpeg" alt="Client 3"></div>
+                <div class="marquee-item"><img src="client4.jpeg" alt="Client 4"></div>
+                <div class="marquee-item"><img src="client5.jpeg" alt="Client 5"></div>
+                <div class="marquee-item"><img src="client6.jpeg" alt="Client 6"></div>
+                <div class="marquee-item"><img src="client7.png" alt="Client 7"></div>
+                <div class="marquee-item"><img src="client8.jpg" alt="Client 8"></div>
+                <div class="marquee-item"><img src="client9.png" alt="Client 9"></div>
+                <div class="marquee-item"><img src="client10.gif" alt="Client 10"></div>
+                <div class="marquee-item"><img src="client11.png" alt="Client 11"></div>
+                <div class="marquee-item"><img src="client12.png" alt="Client 12"></div>
+                <div class="marquee-item"><img src="client13.jpg" alt="Client 13"></div>
+                <div class="marquee-item"><img src="client14.png" alt="Client 14"></div>
+                <div class="marquee-item"><img src="client15.png" alt="Client 15"></div>
+                <div class="marquee-item"><img src="client16.png" alt="Client 16"></div>
+                <div class="marquee-item"><img src="client17.jpg" alt="Client 17"></div>
+
+                <div class="marquee-item"><img src="client1.jpeg" alt="Client 1"></div>
+                <div class="marquee-item"><img src="client2.jpeg" alt="Client 2"></div>
+                <div class="marquee-item"><img src="client3.jpeg" alt="Client 3"></div>
+                <div class="marquee-item"><img src="client4.jpeg" alt="Client 4"></div>
+                <div class="marquee-item"><img src="client5.jpeg" alt="Client 5"></div>
+                <div class="marquee-item"><img src="client6.jpeg" alt="Client 6"></div>
+                <div class="marquee-item"><img src="client7.png" alt="Client 7"></div>
+                <div class="marquee-item"><img src="client8.jpg" alt="Client 8"></div>
+                <div class="marquee-item"><img src="client9.png" alt="Client 9"></div>
+                <div class="marquee-item"><img src="client10.gif" alt="Client 10"></div>
+                <div class="marquee-item"><img src="client11.png" alt="Client 11"></div>
+                <div class="marquee-item"><img src="client12.png" alt="Client 12"></div>
+                <div class="marquee-item"><img src="client13.jpg" alt="Client 13"></div>
+                <div class="marquee-item"><img src="client14.png" alt="Client 14"></div>
+                <div class="marquee-item"><img src="client15.png" alt="Client 15"></div>
+                <div class="marquee-item"><img src="client16.png" alt="Client 16"></div>
+                <div class="marquee-item"><img src="client17.jpg" alt="Client 17"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="marquee-section">
+        <h3 class="marquee-title">Technology Partners</h3>
+        <div class="marquee-wrapper">
+            <div class="marquee-content scroll-lr">
+                <div class="marquee-item"><img src="partner1.png" alt="Partner 1"></div>
+                <div class="marquee-item"><img src="partner2.png" alt="Partner 2"></div>
+                <div class="marquee-item"><img src="partner3.jpeg" alt="Partner 3"></div>
+                <div class="marquee-item"><img src="partner4.png" alt="Partner 4"></div>
+                <div class="marquee-item"><img src="partner5.png" alt="Partner 5"></div>
+                <div class="marquee-item"><img src="partner6.png" alt="Partner 6"></div>
+                <div class="marquee-item"><img src="partner7.png" alt="Partner 7"></div>
+                <div class="marquee-item"><img src="partner8.jpeg" alt="Partner 8"></div>
+                <div class="marquee-item"><img src="partner9.jpg" alt="Partner 9"></div>
+                <div class="marquee-item"><img src="partner10.png" alt="Partner 10"></div>
+                <div class="marquee-item"><img src="partner11.png" alt="Partner 11"></div>
+                <div class="marquee-item"><img src="partner12.jpg" alt="Partner 12"></div>
+
+                <div class="marquee-item"><img src="partner1.png" alt="Partner 1"></div>
+                <div class="marquee-item"><img src="partner2.png" alt="Partner 2"></div>
+                <div class="marquee-item"><img src="partner3.jpeg" alt="Partner 3"></div>
+                <div class="marquee-item"><img src="partner4.png" alt="Partner 4"></div>
+                <div class="marquee-item"><img src="partner5.png" alt="Partner 5"></div>
+                <div class="marquee-item"><img src="partner6.png" alt="Partner 6"></div>
+                <div class="marquee-item"><img src="partner7.png" alt="Partner 7"></div>
+                <div class="marquee-item"><img src="partner8.jpeg" alt="Partner 8"></div>
+                <div class="marquee-item"><img src="partner9.jpg" alt="Partner 9"></div>
+                <div class="marquee-item"><img src="partner10.png" alt="Partner 10"></div>
+                <div class="marquee-item"><img src="partner11.png" alt="Partner 11"></div>
+                <div class="marquee-item"><img src="partner12.jpg" alt="Partner 12"></div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section" id="contact">
+        <h2 class="section-title" data-aos="fade-down">Contact Us</h2>
+        <div class="contact-container">
+            
+            <div class="contact-form" data-aos="fade-right">
+                <h3>Get In Touch</h3>
+                <form action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="70e86b97-b7fd-4ffc-a0b3-fd606e551c5b">
+                    <input type="hidden" name="redirect" value="https://web3forms.com/success">
+                    
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="phone" placeholder="Mobile Number" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="border:none; cursor:pointer; width:100%;">Send Message</button>
+                </form>
+
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> A R COMPUTERS, 1st floor, Group No.1, Tagore Nagar, Vikhroli East, Mumbai - 400083.</p>
+                    <p><i class="fas fa-phone"></i> +91 8080802999 / 9320932044</p>
+                    <p><i class="fas fa-envelope"></i> info@abuit.in</p>
+                </div>
+            </div>
+
+            <div class="map-container" data-aos="fade-left">
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0; min-height: 450px; border-radius: 10px;" 
+                    loading="lazy" 
+                    allowfullscreen
+                    src="https://www.google.com/maps?q=A+R+COMPUTERS+Tagore+Nagar+Vikhroli+East+Mumbai+400083&output=embed">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <span class="footer-logo">A R COMPUTERS</span>
+        <p>Your Trusted IT Partner in Mumbai.</p>
+        <div style="margin-top:20px;">
+            <a href="#home" style="color:#aaa; margin:0 10px; text-decoration:none;">Home</a> | 
+            <a href="#services" style="color:#aaa; margin:0 10px; text-decoration:none;">Services</a> | 
+            <a href="#" style="color:#aaa; margin:0 10px; text-decoration:none;">Privacy Policy</a>
+        </div>
+        
+        <div class="dev-credit">
+            This website developed by <a href="https://www.knoxit.in" target="_blank">www.knoxit.in</a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+    
+    <script>
+        // Initialize AOS Animation
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Initialize 3D Tilt Effect
+        VanillaTilt.init(document.querySelectorAll(".card"), {
+            max: 15,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.3,
+        });
+    </script>
+</body>
+</html>
