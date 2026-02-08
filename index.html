@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>A R COMPUTERS IT SERVICES</title>
+    <meta name="description" content="A R COMPUTERS - Complete IT Support & AMC Services in Mumbai. Expert Laptop Repair, Computer Rentals, and Network Setup for businesses.">
+    <meta name="keywords" content="IT Support Mumbai, Computer AMC Mumbai, Laptop Repair Mumbai, IT AMC Services Mumbai, Computer Rental Mumbai, Office IT Support Mumbai">
+    <title>A R COMPUTERS | Corporate IT Solutions Mumbai</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -15,21 +17,45 @@
         /* --- VARIABLES --- */
         :root {
             --brand: #2596be; 
-            --brand-dark: #1e7fa3;
-            --bg: #ffffff;
-            --text: #000000;
+            --brand-dark: #1a6f8e;
+            --text-dark: #2c3e50;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
             --whatsapp: #25D366;
-            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --radius: 8px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
+            color: var(--text-dark);
+            background-color: var(--white);
             overflow-x: hidden;
             padding-top: 90px;
+            line-height: 1.6;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 { font-weight: 700; line-height: 1.2; }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 50px;
+            font-size: 1rem;
         }
 
         /* --- HEADER --- */
@@ -40,7 +66,7 @@
             width: 100%;
             height: 90px;
             background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             z-index: 1000;
             display: flex;
             justify-content: space-between;
@@ -48,20 +74,9 @@
             padding: 0 20px;
         }
 
-        .header-left img {
-            height: 60px;
-            width: auto;
-            object-fit: contain;
-        }
+        .header-left img { height: 60px; width: auto; object-fit: contain; }
 
-        .header-center {
-            text-align: center;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: max-content;
-        }
-
+        .header-center { text-align: center; position: absolute; left: 50%; transform: translateX(-50%); }
         .header-center h1 {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.2rem;
@@ -70,576 +85,385 @@
             letter-spacing: 1px;
             border-bottom: 2px solid #000;
             padding-bottom: 2px;
-            display: inline-block;
-            width: 100%;
         }
-
         .header-center h2 {
-            font-family: 'Orbitron', sans-serif;
             font-size: 0.75rem;
             color: #000;
             margin-top: 2px;
             letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        .header-right {
-            font-size: 1.8rem;
-            color: var(--brand);
-            cursor: pointer;
-        }
+        .header-right { font-size: 1.8rem; color: var(--brand); cursor: pointer; }
 
-        /* --- SIDEBAR MENU --- */
+        /* --- SIDEBAR --- */
         .sidebar {
-            height: 100%;
-            width: 280px;
-            position: fixed;
-            z-index: 2000;
-            top: 0;
-            right: -280px;
-            background-color: #fff;
-            box-shadow: -5px 0 15px rgba(0,0,0,0.2);
-            transition: 0.4s;
-            padding-top: 60px;
-            display: flex;
-            flex-direction: column;
+            height: 100%; width: 280px; position: fixed; z-index: 2000;
+            top: 0; right: -280px; background-color: #fff;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: 0.4s;
+            padding-top: 60px; display: flex; flex-direction: column;
         }
-
         .sidebar.active { right: 0; }
-
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 30px;
-            color: var(--brand);
-            text-decoration: none;
-            cursor: pointer;
-        }
-
+        .close-btn { position: absolute; top: 20px; right: 25px; font-size: 30px; color: var(--brand); cursor: pointer; }
         .sidebar a {
-            padding: 15px 25px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            color: #333;
-            display: block;
-            transition: 0.3s;
-            font-weight: 600;
+            padding: 15px 25px; text-decoration: none; font-size: 1.1rem;
+            color: #333; display: block; transition: 0.3s; font-weight: 500;
             border-bottom: 1px solid #eee;
         }
-
-        .sidebar a:hover {
-            color: var(--brand);
-            background: #f9f9f9;
-            padding-left: 35px;
-        }
-
+        .sidebar a:hover { color: var(--brand); background: var(--bg-light); padding-left: 35px; }
         .menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1999;
-            display: none;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5); z-index: 1999; display: none;
         }
         .menu-overlay.active { display: block; }
 
-        /* --- HERO & TAGLINE --- */
+        /* --- HERO SECTION --- */
         .hero {
             position: relative;
             width: 100%;
-            height: 50vh; 
-            overflow: hidden;
+            min-height: 85vh; /* Taller for corporate feel */
             background: #000;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            color: white;
         }
 
         #bg-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.6;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; opacity: 0.4; z-index: 0;
         }
 
-        .hero-tagline {
-            position: relative;
-            z-index: 2;
-            color: white;
-            font-family: 'Poppins', sans-serif; /* Normal Font */
-            font-weight: 600;
-            font-size: 2rem;
-            text-align: center;
-            padding: 20px;
-            text-shadow: 0 0 20px rgba(0,0,0, 0.8);
-            max-width: 900px;
-        }
+        .hero-content { position: relative; z-index: 2; max-width: 900px; }
 
-        /* --- QUICK LINKS --- */
-        .quick-links-section {
-            padding: 30px 15px;
-            background: #f8f9fa;
-        }
-
-        .quick-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 15px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .quick-card {
-            background: #fff;
-            padding: 15px 5px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            text-decoration: none;
-            color: #333;
-            transition: 0.3s;
-            border: 2px solid transparent; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-
-        .quick-card:hover {
-            transform: translateY(-8px); 
-            border-color: var(--brand);
-        }
-
-        .quick-card i {
-            font-size: 24px;
-            color: var(--brand);
-            margin-bottom: 8px;
-        }
-
-        .quick-card span {
-            font-size: 0.85rem;
-            font-weight: 700;
-        }
-
-        @media (max-width: 600px) {
-            .hero-tagline { font-size: 1.2rem; }
-            .quick-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .quick-card:last-child {
-                grid-column: 1 / -1;
-            }
-        }
-
-        /* --- MAIN CONTENT WRAPPER --- */
-        #main-content { display: block; }
-
-        /* --- SERVICE DETAIL PAGES --- */
-        .service-detail-page {
-            display: none;
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: left;
-            min-height: 80vh;
-        }
-
-        .detail-img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 15px;
+        .hero h1 {
+            font-size: 2.8rem;
             margin-bottom: 20px;
-            box-shadow: var(--shadow);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
-        .detail-title {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--brand);
-            font-size: 2rem;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-
-        .detail-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #444;
-            margin-bottom: 30px;
-        }
-
-        .back-btn {
-            display: inline-block;
-            padding: 10px 30px;
-            background: #333;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .back-btn:hover { background: var(--brand); }
-
-
-        /* --- SERVICES LIST (HOME) --- */
-        .section { padding: 60px 15px; }
-        
-        .section-title {
-            text-align: center;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2rem;
-            color: var(--brand);
-            margin-bottom: 40px;
-            text-transform: uppercase;
-        }
-
-        .services-wrapper {
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-        }
-
-        .service-item {
-            background: #fff;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            text-align: center;
-            padding-bottom: 30px;
-            position: relative;
-        }
-
-        .service-header {
-            background: var(--brand);
-            color: white;
-            padding: 15px;
-            font-family: 'Orbitron', sans-serif;
+        .hero p {
             font-size: 1.2rem;
-            letter-spacing: 1px;
+            margin-bottom: 30px;
+            opacity: 0.9;
         }
 
-        .service-img {
-            width: 100%;
-            height: 250px;
-            object-fit: contain; /* Full Image No Crop */
-            background-color: #fff; /* White background for fit */
-            display: block;
-        }
-
-        .service-desc {
-            padding: 20px;
-            color: #555;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Small Button for Home Cards */
-        .know-more-btn {
-            display: inline-block;
-            padding: 8px 25px; /* Smaller */
-            background: var(--brand);
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            border-radius: 4px;
-            transition: 0.3s;
-            text-transform: uppercase;
-            font-size: 0.8rem; /* Smaller Font */
-            cursor: pointer;
-        }
-        
-        .know-more-btn:hover { background: var(--brand-dark); }
-        
-        /* Big Button for Detail Page */
-        .inquire-btn {
-             display: inline-block;
-            padding: 12px 35px;
-            background: var(--brand);
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: 0.3s;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            cursor: pointer;
-        }
-
-        /* --- MARQUEE --- */
-        .marquee-section {
-            padding: 40px 0;
-            background: #fff;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-        }
-        .marquee-title {
-            text-align: center;
-            color: #999;
-            margin-bottom: 25px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1rem;
-        }
-        .marquee-track {
+        .hero-btns {
             display: flex;
-            width: max-content;
-            gap: 40px;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
         }
-        .marquee-logo {
-            height: 70px;
-            width: auto;
-            object-fit: contain;
-        }
-        .scroll-left { animation: scrollLeft 30s linear infinite; }
-        .scroll-right { animation: scrollRight 30s linear infinite; }
-        @keyframes scrollLeft { 100% { transform: translateX(-50%); } }
-        @keyframes scrollRight { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
 
-        /* --- CONTACT SECTION --- */
-        .contact-container {
+        .btn-primary {
+            background: var(--brand);
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+            border: 2px solid var(--brand);
+        }
+        .btn-primary:hover { background: var(--brand-dark); border-color: var(--brand-dark); transform: translateY(-3px); }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+            border: 2px solid white;
+        }
+        .btn-outline:hover { background: white; color: var(--brand); transform: translateY(-3px); }
+
+        /* Hero Badges */
+        .hero-highlights {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .badge {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(5px);
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .badge i { color: #4fffa8; }
+
+        /* --- SECTIONS GENERAL --- */
+        .section { padding: 80px 20px; }
+        .bg-light { background-color: var(--bg-light); }
+
+        /* --- WHY CHOOSE US --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+            border-top: 4px solid var(--brand);
+        }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--brand);
+            margin-bottom: 20px;
+        }
+        .feature-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+        .feature-card p { color: var(--text-light); font-size: 0.95rem; }
+
+        /* --- INDUSTRIES WE SERVE --- */
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
             max-width: 1100px;
             margin: 0 auto;
+        }
+        .industry-card {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: var(--radius);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+        .industry-card i { font-size: 2rem; color: var(--brand); margin-bottom: 10px; display: block;}
+        .industry-card span { font-weight: 600; font-size: 0.9rem; }
+
+        /* --- SERVICES (REWRITE) --- */
+        .services-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .service-block {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
             display: flex;
-            flex-wrap: wrap;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-            border-radius: 10px;
+            flex-direction: column;
+        }
+        .service-block:hover { transform: translateY(-5px); }
+        .service-img-container {
+            height: 200px;
+            width: 100%;
             overflow: hidden;
         }
-
-        /* Left: Form (Blue) */
-        .contact-left {
-            flex: 1;
-            min-width: 320px;
-            background: var(--brand);
-            padding: 40px;
-            color: white;
+        .service-img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: 0.5s;
         }
-
-        .contact-left h3 {
-            font-family: 'Orbitron', sans-serif;
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-        }
+        .service-block:hover .service-img { transform: scale(1.1); }
         
-        .contact-left p { margin-bottom: 25px; opacity: 0.9; font-size: 0.9rem; }
-
-        .form-group { margin-bottom: 15px; }
-
-        .contact-left input, 
-        .contact-left select, 
-        .contact-left textarea {
-            width: 100%;
-            padding: 15px; /* More padding */
-            border: 2px solid transparent;
-            border-radius: 6px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.95rem;
-            background: #f9f9f9;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
-            transition: 0.3s;
-        }
+        .service-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column;}
+        .service-content h3 { font-size: 1.3rem; margin-bottom: 10px; color: var(--text-dark); }
+        .service-content p { color: var(--text-light); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1;}
         
-        .contact-left input:focus, 
-        .contact-left select:focus, 
-        .contact-left textarea:focus {
-            outline: none;
-            border-color: #fff;
-            background: #fff;
+        .service-btn {
+            align-self: flex-start;
+            color: var(--brand);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
+        .service-btn:hover { color: var(--brand-dark); gap: 10px; }
 
-        .contact-left button {
-            width: 100%;
-            padding: 15px;
-            background: #28a745; 
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: 0.3s;
-            margin-top: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .contact-left button:hover { background: #218838; transform: translateY(-2px); }
-
-        /* Right: Info & Map (White) */
-        .contact-right {
-            flex: 1;
-            min-width: 320px;
+        /* --- SLA SECTION --- */
+        .sla-container {
+            max-width: 900px;
+            margin: 0 auto;
             background: white;
             padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--brand);
+        }
+        .sla-row {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
         }
+        .sla-row:last-child { border-bottom: none; }
+        .sla-label { font-weight: 600; color: var(--text-dark); }
+        .sla-value { color: var(--brand); font-weight: 700; }
 
-        .info-block { margin-bottom: 30px; }
-        .info-title {
-            color: var(--brand);
-            font-weight: bold;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        /* --- FREE AUDIT LEAD MAGNET --- */
+        .audit-section {
+            background: linear-gradient(135deg, var(--text-dark), #1a1a1a);
+            color: white;
+            text-align: center;
         }
+        .audit-content { max-width: 700px; margin: 0 auto; }
+        .audit-content h2 { margin-bottom: 15px; color: white; }
+        .audit-content p { margin-bottom: 30px; opacity: 0.9; }
 
-        .info-list p {
-            margin-bottom: 15px;
-            font-size: 1rem;
-            color: #333; /* Normal color */
-            display: flex;
-            gap: 15px;
-            align-items: flex-start;
+        /* --- TESTIMONIALS --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        
-        .info-list i { 
-            color: var(--brand); 
-            margin-top: 4px; 
-            font-size: 1.2rem;
-        }
-        
-        .bold-num {
-            font-weight: 700;
-            color: #000;
-            font-size: 1.1rem;
-        }
-
-        .timing-separator {
-            border: 0;
-            height: 1px;
-            background: #ddd;
-            margin: 5px 0 0 35px; /* Align with text */
-            width: 80%;
-        }
-
-        .map-wrapper {
-            flex-grow: 1;
-            width: 100%;
-            height: 400px; /* Mobile Friendly Height */
-            border-radius: 8px;
-            overflow: hidden;
-            border: 2px solid #eee;
+        .testi-card {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: var(--radius);
             position: relative;
         }
+        .testi-card i { color: #ddd; font-size: 2rem; position: absolute; top: 20px; left: 20px; }
+        .testi-text { position: relative; z-index: 2; margin-top: 10px; font-style: italic; color: #555;}
+        .testi-author { margin-top: 15px; font-weight: 700; color: var(--brand); }
+
+        /* --- FAQ SECTION --- */
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: var(--radius);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .faq-item summary {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-item summary::after { content: '+'; font-size: 1.5rem; color: var(--brand); }
+        .faq-item details[open] summary::after { content: '-'; }
+        .faq-item p { padding: 0 20px 20px 20px; color: var(--text-light); border-top: 1px solid #f0f0f0; margin-top: 10px; padding-top: 15px;}
+
+        /* --- CONTACT & FORM --- */
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        .contact-info { flex: 1; min-width: 300px; }
+        .contact-form-wrapper {
+            flex: 1.5;
+            min-width: 300px;
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border-top: 5px solid var(--brand);
+        }
+
+        .info-box { margin-bottom: 30px; }
+        .info-box h4 { font-size: 1.1rem; margin-bottom: 15px; color: var(--brand); }
+        .info-link {
+            display: flex; align-items: center; gap: 15px; margin-bottom: 10px;
+            font-size: 1.05rem; color: var(--text-dark); text-decoration: none;
+        }
+        .info-link i { color: var(--brand); font-size: 1.2rem; }
+        .bold-num { font-weight: 700; }
+
+        /* Form Styling */
+        .form-row { display: flex; gap: 20px; margin-bottom: 15px; }
+        .form-group { flex: 1; }
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Poppins', sans-serif;
+            transition: 0.3s;
+        }
+        .form-control:focus { outline: none; border-color: var(--brand); }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--brand);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .submit-btn:hover { background: var(--brand-dark); }
 
         /* --- FOOTER --- */
-        footer {
-            background: #222;
-            color: #fff;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 50px;
-            font-size: 0.85rem;
+        footer { background: #111; color: #aaa; padding: 60px 20px 20px; font-size: 0.9rem; }
+        .footer-content {
+            max-width: 1200px; margin: 0 auto; display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px;
         }
+        .footer-col h4 { color: white; margin-bottom: 20px; font-size: 1.1rem; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 10px; }
+        .footer-col a { color: #aaa; text-decoration: none; transition: 0.3s; }
+        .footer-col a:hover { color: var(--brand); }
         
-        .footer-links {
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .footer-links span {
-            color: #ccc;
-            text-decoration: underline;
-            cursor: pointer;
-            font-size: 0.9rem;
-        }
-        .footer-links span:hover { color: #fff; }
-
         .copyright {
-            color: #777;
-            font-size: 0.8rem;
-            margin-top: 20px;
-            border-top: 1px solid #444;
-            padding-top: 20px;
+            text-align: center; border-top: 1px solid #222; padding-top: 20px;
         }
-
-        /* --- MODAL POPUP --- */
-        .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 5000; 
-            left: 0;
-            top: 0;
-            width: 100%; 
-            height: 100%; 
-            overflow: auto; 
-            background-color: rgba(0,0,0,0.8); 
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 10% auto; 
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%; 
-            max-width: 600px;
-            border-radius: 10px;
-            position: relative;
-        }
-
-        .close-modal {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .close-modal:hover { color: black; }
 
         /* --- FLOATING BUTTONS --- */
         .floating-btns {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 3000;
+            position: fixed; bottom: 25px; right: 25px;
+            display: flex; flex-direction: column; gap: 15px; z-index: 3000;
         }
-
         .float-btn {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 26px;
-            text-decoration: none;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            transition: transform 0.2s;
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 26px; text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: 0.3s;
         }
-
         .float-btn:hover { transform: scale(1.1); }
         .wa-float { background: var(--whatsapp); }
+        .call-float { background: var(--brand); animation: pulse 2s infinite; }
         
-        .call-float { 
-            background: var(--brand); 
-            animation: pulse 2s infinite;
-        }
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(37, 150, 190, 0.7); }
             70% { box-shadow: 0 0 0 15px rgba(37, 150, 190, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 150, 190, 0); }
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
-            .contact-container { flex-direction: column; }
-            .service-img { height: 200px; }
-            .map-wrapper { height: 400px; }
+            .hero h1 { font-size: 2rem; }
+            .form-row { flex-direction: column; gap: 15px; }
+            .header-center { display: none; } /* Hide center text on mobile for cleaner look */
         }
     </style>
 </head>
@@ -647,7 +471,7 @@
 
     <header>
         <div class="header-left">
-            <img src="images/mylogo.png" alt="Logo">
+            <img src="images/mylogo.png" alt="A R COMPUTERS Logo">
         </div>
         <div class="header-center">
             <h1>A R COMPUTERS</h1>
@@ -660,15 +484,16 @@
 
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">×</a>
-        <a href="#" onclick="showHome(); closeNav()">Home</a>
-        <a href="#services" onclick="showHome(); closeNav()">Services</a>
-        <a href="#clients" onclick="showHome(); closeNav()">Clients</a>
-        <a href="#contact" onclick="showHome(); closeNav()">Contact Us</a>
+        <a href="#home" onclick="closeNav()">Home</a>
+        <a href="#services" onclick="closeNav()">Services</a>
+        <a href="#audit" onclick="closeNav()">Free Audit</a>
+        <a href="#about" onclick="closeNav()">About Us</a>
+        <a href="#contact" onclick="closeNav()">Contact</a>
     </div>
     <div id="menuOverlay" class="menu-overlay" onclick="closeNav()"></div>
 
     <div class="floating-btns">
-        <a href="https://wa.me/919702777737?text=Hello%20A%20R%20COMPUTERS,%20I%20am%20interested%20in%20your%20IT%20Services.%20Please%20assist%20me." target="_blank" class="float-btn wa-float">
+        <a href="https://wa.me/919702777737?text=Hello%20A%20R%20COMPUTERS,%20I%20need%20IT%20Support%20for%20my%20business." target="_blank" class="float-btn wa-float">
             <i class="fab fa-whatsapp"></i>
         </a>
         <a href="tel:+918080802999" class="float-btn call-float">
@@ -676,372 +501,345 @@
         </a>
     </div>
 
-    <div id="main-content">
-
-        <section class="hero" id="home">
-            <video autoplay muted loop playsinline id="bg-video">
-                <source src="images/topbanner.mp4" type="video/mp4">
-            </video>
-            <div class="hero-tagline">
-                Delivering Future-Ready IT Infrastructure Nationwide.
+    <section class="hero" id="home">
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="images/topbanner.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content" data-aos="fade-up">
+            <h1>Complete IT Support & AMC Services for Businesses</h1>
+            <p>We manage your entire IT infrastructure so you can focus on growing your business. Fast response, expert engineers, and reliable support across Mumbai.</p>
+            
+            <div class="hero-btns">
+                <a href="#audit" class="btn-primary">Get Free IT Audit</a>
+                <a href="#contact" class="btn-outline">Request AMC Quote</a>
             </div>
-        </section>
 
-        <div class="quick-links-section">
-            <div class="quick-grid">
-                <div onclick="showService('amc')" class="quick-card">
-                    <i class="fas fa-tools"></i>
-                    <span>AMC</span>
+            <div class="hero-highlights">
+                <div class="badge"><i class="fas fa-check-circle"></i> 10+ Years Exp</div>
+                <div class="badge"><i class="fas fa-check-circle"></i> 3500+ Businesses</div>
+                <div class="badge"><i class="fas fa-check-circle"></i> Same Day Support</div>
+                <div class="badge"><i class="fas fa-check-circle"></i> Mumbai & Nearby</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-light" id="why-us">
+        <h2 class="section-title">Why Businesses Choose ARC</h2>
+        <p class="section-subtitle">Your Reliable IT Partner in Mumbai</p>
+        
+        <div class="features-grid">
+            <div class="feature-card" data-aos="fade-up">
+                <i class="fas fa-stopwatch feature-icon"></i>
+                <h3>Fast Response Time</h3>
+                <p>Guaranteed same-day onsite support for urgent critical issues to minimize downtime.</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-user-shield feature-icon"></i>
+                <h3>Experienced Engineers</h3>
+                <p>Certified IT professionals who understand complex networks and hardware issues.</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-wallet feature-icon"></i>
+                <h3>Affordable AMC Plans</h3>
+                <p>Flexible maintenance contracts designed for every business size, from Startups to Corporates.</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                <i class="fas fa-shield-alt feature-icon"></i>
+                <h3>Preventive Maintenance</h3>
+                <p>We perform regular checkups to identify and prevent issues before they disrupt your business.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Industries We Support</h2>
+        <p class="section-subtitle">Tailored IT Solutions for Every Sector</p>
+        <div class="industry-grid">
+            <div class="industry-card"><i class="fas fa-building"></i> <span>Corporate Offices</span></div>
+            <div class="industry-card"><i class="fas fa-graduation-cap"></i> <span>Schools & Colleges</span></div>
+            <div class="industry-card"><i class="fas fa-heartbeat"></i> <span>Clinics & Hospitals</span></div>
+            <div class="industry-card"><i class="fas fa-briefcase"></i> <span>CA & Law Firms</span></div>
+            <div class="industry-card"><i class="fas fa-rocket"></i> <span>Startups & SMEs</span></div>
+            <div class="industry-card"><i class="fas fa-headset"></i> <span>Call Centers</span></div>
+        </div>
+    </section>
+
+    <section class="section bg-light" id="services">
+        <h2 class="section-title">Our Core Services</h2>
+        <p class="section-subtitle">End-to-End IT Infrastructure Management</p>
+
+        <div class="services-wrapper">
+            <div class="service-block" data-aos="fade-up">
+                <div class="service-img-container">
+                    <img src="images/amc.png" alt="Computer AMC Mumbai" class="service-img">
                 </div>
-                <div onclick="showService('rental')" class="quick-card">
-                    <i class="fas fa-desktop"></i>
-                    <span>Rentals</span>
+                <div class="service-content">
+                    <h3>Annual Maintenance Contract</h3>
+                    <p>Complete IT maintenance with regular visits, priority support, and asset management.</p>
+                    <a href="#contact" class="service-btn">Know More <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div onclick="showService('repair')" class="quick-card">
-                    <i class="fas fa-microchip"></i>
-                    <span>Repair</span>
+            </div>
+
+            <div class="service-block" data-aos="fade-up">
+                <div class="service-img-container">
+                    <img src="images/repair.jpg" alt="IT Support Mumbai" class="service-img">
                 </div>
-                <div onclick="showService('networking')" class="quick-card">
-                    <i class="fas fa-network-wired"></i>
-                    <span>Network</span>
+                <div class="service-content">
+                    <h3>Onsite & Remote Support</h3>
+                    <p>Instant troubleshooting for software issues and fast onsite visits for hardware problems.</p>
+                    <a href="#contact" class="service-btn">Know More <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div onclick="window.location.href='https://www.knoxit.in'" class="quick-card">
-                    <i class="fas fa-envelope"></i>
-                    <span>Email</span>
+            </div>
+
+            <div class="service-block" data-aos="fade-up">
+                <div class="service-img-container">
+                    <img src="images/network.jpg" alt="IT Infrastructure Setup" class="service-img">
                 </div>
-                <div onclick="showService('sales')" class="quick-card">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span>Sales</span>
+                <div class="service-content">
+                    <h3>IT Infrastructure Setup</h3>
+                    <p>Complete office network setup, server installation, structured cabling, and WiFi configuration.</p>
+                    <a href="#contact" class="service-btn">Know More <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div onclick="window.location.href='https://www.knoxit.in'" class="quick-card">
-                    <i class="fas fa-code"></i>
-                    <span>Web Design</span>
+            </div>
+
+            <div class="service-block" data-aos="fade-up">
+                <div class="service-img-container">
+                    <img src="images/rental.jpg" alt="Computer Rental Mumbai" class="service-img">
+                </div>
+                <div class="service-content">
+                    <h3>Computer Rental Services</h3>
+                    <p>Short-term and long-term rental of Laptops, Desktops, and Servers for your workforce.</p>
+                    <a href="#contact" class="service-btn">Know More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="service-block" data-aos="fade-up">
+                <div class="service-img-container">
+                    <img src="images/sales.jpeg" alt="Laptop Repair Mumbai" class="service-img">
+                </div>
+                <div class="service-content">
+                    <h3>Laptop & Desktop Repair</h3>
+                    <p>Expert chip-level repair, screen replacement, and hardware upgrades for all brands.</p>
+                    <a href="#contact" class="service-btn">Know More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="service-block" data-aos="fade-up">
+                <div class="service-img-container">
+                    <img src="images/mail.jpg" alt="Business Email" class="service-img">
+                </div>
+                <div class="service-content">
+                    <h3>Business Email Solutions</h3>
+                    <p>Professional G-Suite / Office 365 setup, migration, and security configuration.</p>
+                    <a href="https://www.knoxit.in" class="service-btn">Visit Knoxit.in <i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>
         </div>
+    </section>
 
-        <section class="section" id="services">
-            <h2 class="section-title" data-aos="fade-down">Our Services</h2>
-            <div class="services-wrapper">
-
-                <div class="service-item" data-aos="fade-up">
-                    <div class="service-header">AMC SERVICES</div>
-                    <img src="images/amc.png" alt="AMC" class="service-img">
-                    <div class="service-desc">
-                        Comprehensive Annual Maintenance Contracts to ensure your business runs without technical interruptions.
-                    </div>
-                    <div class="know-more-btn" onclick="showService('amc')">Know More</div>
-                </div>
-
-                <div class="service-item" data-aos="fade-up">
-                    <div class="service-header">IT RENTALS</div>
-                    <img src="images/rental.jpg" alt="Rental" class="service-img">
-                    <div class="service-desc">
-                        Affordable Laptops and Desktops on rent. Flexible daily, monthly, and yearly plans available.
-                    </div>
-                    <div class="know-more-btn" onclick="showService('rental')">Know More</div>
-                </div>
-
-                <div class="service-item" data-aos="fade-up">
-                    <div class="service-header">HARDWARE REPAIR</div>
-                    <img src="images/repair.jpg" alt="Repair" class="service-img">
-                    <div class="service-desc">
-                        Expert chip-level repairing for Motherboards, Laptops, Printers, and Data Recovery services.
-                    </div>
-                    <div class="know-more-btn" onclick="showService('repair')">Know More</div>
-                </div>
-
-                <div class="service-item" data-aos="fade-up">
-                    <div class="service-header">NETWORKING</div>
-                    <img src="images/network.jpg" alt="Network" class="service-img">
-                    <div class="service-desc">
-                        Complete LAN/WAN setup, Server Installation, Cabling, and Network Security configuration.
-                    </div>
-                    <div class="know-more-btn" onclick="showService('networking')">Know More</div>
-                </div>
-
-                <div class="service-item" data-aos="fade-up">
-                    <div class="service-header">BUSINESS EMAIL</div>
-                    <img src="images/mail.jpg" alt="Email" class="service-img">
-                    <div class="service-desc">
-                        Professional G-Suite, Office 365, and Webmail solutions for secure business communication.
-                    </div>
-                    <div class="know-more-btn" onclick="window.location.href='https://www.knoxit.in'">Know More</div>
-                </div>
-
-                <div class="service-item" data-aos="fade-up">
-                    <div class="service-header">IT SALES</div>
-                    <img src="images/sales.jpeg" alt="Sales" class="service-img">
-                    <div class="service-desc">
-                        Best deals on New & Refurbished Laptops, Desktops, Accessories, and Peripherals.
-                    </div>
-                    <div class="know-more-btn" onclick="showService('sales')">Know More</div>
-                </div>
-
-                <div class="service-item" data-aos="fade-up">
-                    <div class="service-header">WEB DESIGN</div>
-                    <img src="images/website.jpg" alt="Web" class="service-img">
-                    <div class="service-desc">
-                        Responsive Website Development, Hosting, and Domain services to grow your online presence.
-                    </div>
-                    <div class="know-more-btn" onclick="window.location.href='https://www.knoxit.in'">Know More</div>
-                </div>
-
+    <section class="section" id="sla">
+        <h2 class="section-title">Our Support SLA</h2>
+        <p class="section-subtitle">We Value Your Time</p>
+        <div class="sla-container" data-aos="zoom-in">
+            <div class="sla-row">
+                <span class="sla-label">Critical Issues (Server Down)</span>
+                <span class="sla-value">1 – 4 Hours</span>
             </div>
-        </section>
-
-        <div class="marquee-section" id="clients">
-            <h3 class="marquee-title">OUR VALUED CLIENTS</h3>
-            <div style="overflow:hidden;">
-                <div class="marquee-track scroll-left">
-                    <img src="images/client1.jpeg" class="marquee-logo">
-                    <img src="images/client2.jpeg" class="marquee-logo">
-                    <img src="images/client3.jpeg" class="marquee-logo">
-                    <img src="images/client4.jpeg" class="marquee-logo">
-                    <img src="images/client5.jpeg" class="marquee-logo">
-                    <img src="images/client6.jpeg" class="marquee-logo">
-                    <img src="images/client7.png" class="marquee-logo">
-                    <img src="images/client8.jpg" class="marquee-logo">
-                    <img src="images/client9.png" class="marquee-logo">
-                    <img src="images/client10.gif" class="marquee-logo">
-                    <img src="images/client11.png" class="marquee-logo">
-                    <img src="images/client12.png" class="marquee-logo">
-                    <img src="images/client13.jpg" class="marquee-logo">
-                    <img src="images/client14.png" class="marquee-logo">
-                    <img src="images/client15.png" class="marquee-logo">
-                    <img src="images/client16.png" class="marquee-logo">
-                    <img src="images/client17.jpg" class="marquee-logo">
-                    <img src="images/client1.jpeg" class="marquee-logo">
-                    <img src="images/client2.jpeg" class="marquee-logo">
-                    <img src="images/client3.jpeg" class="marquee-logo">
-                </div>
+            <div class="sla-row">
+                <span class="sla-label">Major Issues (Work Stopped)</span>
+                <span class="sla-value">Same Day</span>
+            </div>
+            <div class="sla-row">
+                <span class="sla-label">Minor Issues (Software/Email)</span>
+                <span class="sla-value">Within 24 Hours</span>
+            </div>
+            <div class="sla-row">
+                <span class="sla-label">Preventive Visits</span>
+                <span class="sla-value">Monthly / Quarterly</span>
             </div>
         </div>
+    </section>
 
-        <div class="marquee-section">
-            <h3 class="marquee-title">OUR TECHNOLOGY PARTNERS</h3>
-            <div style="overflow:hidden;">
-                <div class="marquee-track scroll-right">
-                    <img src="images/partner1.png" class="marquee-logo">
-                    <img src="images/partner2.png" class="marquee-logo">
-                    <img src="images/partner3.jpeg" class="marquee-logo">
-                    <img src="images/partner4.png" class="marquee-logo">
-                    <img src="images/partner5.png" class="marquee-logo">
-                    <img src="images/partner6.png" class="marquee-logo">
-                    <img src="images/partner7.png" class="marquee-logo">
-                    <img src="images/partner8.jpeg" class="marquee-logo">
-                    <img src="images/partner9.jpg" class="marquee-logo">
-                    <img src="images/partner10.png" class="marquee-logo">
-                    <img src="images/partner11.png" class="marquee-logo">
-                    <img src="images/partner12.jpg" class="marquee-logo">
-                    <img src="images/partner1.png" class="marquee-logo">
-                    <img src="images/partner2.png" class="marquee-logo">
-                </div>
+    <section class="section audit-section" id="audit">
+        <div class="audit-content" data-aos="fade-up">
+            <h2>Get a FREE IT Infrastructure Audit</h2>
+            <p>Is your network slow? Worried about data security? We will analyze your current IT setup and suggest improvements to reduce downtime and costs.</p>
+            <a href="#contact" class="btn-primary" style="background: white; color: var(--text-dark); border:none;">Book Free Audit</a>
+        </div>
+    </section>
+
+    <section class="section bg-light">
+        <h2 class="section-title">Client Stories</h2>
+        <div class="testimonials-grid">
+            <div class="testi-card">
+                <i class="fas fa-quote-left"></i>
+                <p class="testi-text">"ARC IT Services has completely transformed our IT operations. Their response time is incredible."</p>
+                <p class="testi-author">– Finance Company, Mumbai</p>
+            </div>
+            <div class="testi-card">
+                <i class="fas fa-quote-left"></i>
+                <p class="testi-text">"Fast response and reliable engineers. Highly recommended for AMC services."</p>
+                <p class="testi-author">– Logistics Company</p>
+            </div>
+            <div class="testi-card">
+                <i class="fas fa-quote-left"></i>
+                <p class="testi-text">"Best AMC provider we have worked with. They manage our entire school network seamlessly."</p>
+                <p class="testi-author">– School Administrator</p>
             </div>
         </div>
+    </section>
 
-        <section class="section" id="contact">
-            <div class="contact-container" data-aos="fade-up">
+    <section class="section" id="about">
+        <div class="contact-container">
+            <div class="contact-info" data-aos="fade-right">
+                <h2 style="font-size: 2rem; margin-bottom: 20px;">About A R COMPUTERS</h2>
+                <p style="margin-bottom: 15px;">ARC IT Services is a Mumbai-based IT support company providing reliable and affordable IT solutions since 2012. We specialize in AMC services, IT support, networking, and computer rentals for businesses across Mumbai.</p>
+                <p style="margin-bottom: 20px;">Our mission is to keep your business running without IT interruptions through proactive maintenance and rapid support.</p>
                 
-                <div class="contact-left">
-                    <h3>Contact Us</h3>
-                    <p>Fill the form below or call us directly.</p>
-                    <form action="https://api.web3forms.com/submit" method="POST">
-                        <input type="hidden" name="access_key" value="70e86b97-b7fd-4ffc-a0b3-fd606e551c5b">
-                        <input type="hidden" name="redirect" value="https://web3forms.com/success">
+                <h3 style="margin: 30px 0 15px;">Frequently Asked Questions</h3>
+                <div class="faq-container">
+                    <details class="faq-item">
+                        <summary>What is included in AMC?</summary>
+                        <p>Our AMC includes unlimited remote support, breakdown onsite visits, preventive maintenance, and asset management.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>How fast is your response time?</summary>
+                        <p>We provide same-day support for critical issues and generally respond within 4 hours.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Which areas do you cover?</summary>
+                        <p>We cover all of Mumbai, Navi Mumbai, Thane, and surrounding industrial areas.</p>
+                    </details>
+                </div>
+            </div>
+            <div class="contact-form-wrapper" style="background: var(--bg-light); border:none; box-shadow:none; display:flex; align-items:center; justify-content:center;">
+                <img src="images/repair.jpg" style="width:100%; border-radius:8px;" alt="Office IT Support">
+            </div>
+        </div>
+    </section>
 
+    <section class="section bg-light" id="contact">
+        <div class="contact-container">
+            
+            <div class="contact-info">
+                <h2 style="font-size: 2rem; margin-bottom: 30px; color: var(--brand);">Get In Touch</h2>
+                
+                <div class="info-box">
+                    <h4>Sales & Enquiry</h4>
+                    <a href="tel:+918080802999" class="info-link">
+                        <i class="fas fa-phone-volume"></i> <span class="bold-num">+91-8080802999</span>
+                    </a>
+                    <a href="tel:+919320932044" class="info-link">
+                        <i class="fas fa-phone-volume"></i> <span class="bold-num">+91-9320932044</span>
+                    </a>
+                </div>
+
+                <div class="info-box">
+                    <h4>Email Support</h4>
+                    <a href="mailto:info@abuit.in" class="info-link">
+                        <i class="fas fa-envelope"></i> info@abuit.in
+                    </a>
+                </div>
+
+                <div class="info-box">
+                    <h4>Office Address</h4>
+                    <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.761274151368!2d72.92984931490212!3d19.118110987063806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c7b055555555%3A0x0!2sTagore%20Nagar%2C%20Vikhroli%2C%20Mumbai%2C%20Maharashtra%20400083!5e0!3m2!1sen!2sin!4v1625829382928!5m2!1sen!2sin" target="_blank" class="info-link">
+                        <i class="fas fa-map-marker-alt"></i> 
+                        A R COMPUTERS, 1st floor, Group No.1, Tagore Nagar, Vikhroli East, Mumbai - 400083.
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-form-wrapper" id="enquiry-form">
+                <h3 style="margin-bottom: 20px;">Request Consultation / Quote</h3>
+                <form action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="70e86b97-b7fd-4ffc-a0b3-fd606e551c5b">
+                    <input type="hidden" name="redirect" value="https://web3forms.com/success">
+
+                    <div class="form-row">
                         <div class="form-group">
-                            <input type="text" name="name" placeholder="Your Name" required>
+                            <input type="text" name="name" class="form-control" placeholder="Full Name *" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="phone" placeholder="Mobile Number" required>
+                            <input type="text" name="company" class="form-control" placeholder="Company Name *" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="Email Address *" required>
                         </div>
                         <div class="form-group">
-                            <select name="service" required>
-                                <option value="" disabled selected>Select Service</option>
-                                <option value="AMC">AMC Services</option>
-                                <option value="Rental">IT Rentals</option>
-                                <option value="Repair">Hardware Repair</option>
-                                <option value="Networking">Networking</option>
-                                <option value="Email">Business Email</option>
-                                <option value="Sales">IT Sales</option>
-                                <option value="Web Design">Web Design</option>
+                            <input type="text" name="phone" class="form-control" placeholder="Phone Number *" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <select name="company_size" class="form-control">
+                                <option value="" disabled selected>Company Size</option>
+                                <option value="1-10">1-10 Employees</option>
+                                <option value="11-50">11-50 Employees</option>
+                                <option value="50+">50+ Employees</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <textarea name="message" rows="3" placeholder="Requirement Message"></textarea>
+                            <input type="text" name="city" class="form-control" placeholder="City">
                         </div>
-                        
-                        <button type="submit">ENQUIRE NOW</button>
-                    </form>
-                </div>
+                    </div>
 
-                <div class="contact-right">
-                    <div class="info-block">
-                        <div class="info-title"><i class="fas fa-headset"></i> Get In Touch</div>
-                        <div class="info-list">
-                            <p>
-                                <i class="fas fa-phone-volume"></i> 
-                                <span class="bold-num">+91-8080802999</span>
-                            </p>
-                            <p>
-                                <i class="fas fa-phone-volume"></i> 
-                                <span>+91-9320932044</span>
-                            </p>
-                            <p>
-                                <i class="fas fa-envelope"></i> 
-                                <span>info@abuit.in</span>
-                            </p>
-                            <p style="margin-bottom:0;">
-                                <i class="fas fa-clock"></i> 
-                                <span>9:30 AM to 6:30 PM (Sun Closed)</span>
-                            </p>
-                            <hr class="timing-separator">
-                            <p style="margin-top:15px;">
-                                <i class="fas fa-map-marker-alt"></i> 
-                                <span>A R COMPUTERS, 1st floor, Group No.1, Tagore Nagar, Vikhroli East, Mumbai - 400083.</span>
-                            </p>
-                        </div>
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <select name="service" class="form-control" required>
+                            <option value="" disabled selected>Service Required *</option>
+                            <option value="AMC">Annual Maintenance Contract</option>
+                            <option value="IT Support">IT Support / Repair</option>
+                            <option value="Rental">Computer Rentals</option>
+                            <option value="Networking">Networking / Setup</option>
+                            <option value="Audit">Free IT Audit</option>
+                            <option value="Other">Other</option>
+                        </select>
                     </div>
-                    
-                    <div class="map-wrapper">
-                        <a href="https://maps.google.com/?q=A+R+COMPUTERS+IT+SERVICES+Tagore+Nagar+Vikhroli+East" target="_blank" style="display:block; width:100%; height:100%;">
-                            <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.761274151368!2d72.92984931490212!3d19.118110987063806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c7b055555555%3A0x0!2sTagore%20Nagar%2C%20Vikhroli%2C%20Mumbai%2C%20Maharashtra%20400083!5e0!3m2!1sen!2sin!4v1625829382928!5m2!1sen!2sin"
-                                width="100%" 
-                                height="100%" 
-                                style="border:0; pointer-events: none;" 
-                                allowfullscreen="" 
-                                loading="lazy">
-                            </iframe>
-                        </a>
+
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <textarea name="message" rows="4" class="form-control" placeholder="Message / Requirement"></textarea>
                     </div>
-                </div>
+
+                    <button type="submit" class="submit-btn">Request Consultation</button>
+                </form>
             </div>
-        </section>
 
-    </div> <div id="service-amc" class="service-detail-page">
-        <div class="back-btn" onclick="showHome()">⬅ Back to Home</div>
-        <br><br>
-        <img src="images/amc.png" class="detail-img">
-        <h2 class="detail-title">AMC SERVICES</h2>
-        <div class="detail-content">
-            <p>We provide comprehensive Annual Maintenance Contracts (AMC) to ensure your business runs smoothly without any technical interruptions. Our AMC services cover:</p>
-            <ul>
-                <li>Regular preventive maintenance visits.</li>
-                <li>Unlimited breakdown calls.</li>
-                <li>Replacement of faulty parts (Comprehensive Plan).</li>
-                <li>Software support and virus removal.</li>
-                <li>Network troubleshooting.</li>
-            </ul>
         </div>
-        <div class="inquire-btn" onclick="document.getElementById('contact').scrollIntoView(); showHome();">ENQUIRE NOW</div>
-    </div>
-
-    <div id="service-rental" class="service-detail-page">
-        <div class="back-btn" onclick="showHome()">⬅ Back to Home</div>
-        <br><br>
-        <img src="images/rental.jpg" class="detail-img">
-        <h2 class="detail-title">IT RENTALS</h2>
-        <div class="detail-content">
-            <p>Get high-performance Laptops and Desktops on rent at affordable rates. We offer flexible rental plans suitable for startups, corporate events, and long-term projects.</p>
-            <ul>
-                <li>Core i3, i5, i7, i9 Laptops & Desktops.</li>
-                <li>MacBook Pro & Air available.</li>
-                <li>Daily, Weekly, Monthly, and Yearly plans.</li>
-                <li>Free maintenance during the rental period.</li>
-                <li>Immediate replacement in case of hardware failure.</li>
-            </ul>
-        </div>
-        <div class="inquire-btn" onclick="document.getElementById('contact').scrollIntoView(); showHome();">ENQUIRE NOW</div>
-    </div>
-
-    <div id="service-repair" class="service-detail-page">
-        <div class="back-btn" onclick="showHome()">⬅ Back to Home</div>
-        <br><br>
-        <img src="images/repair.jpg" class="detail-img">
-        <h2 class="detail-title">HARDWARE REPAIR</h2>
-        <div class="detail-content">
-            <p>Expert chip-level repairing services for all IT hardware.</p>
-            <ul>
-                <li>Laptop Motherboard Repair.</li>
-                <li>Screen, Keyboard, and Battery Replacement.</li>
-                <li>Printer Repairing & Servicing.</li>
-                <li>Data Recovery from crashed Hard Drives.</li>
-                <li>Hinge Fabrication and Body Repair.</li>
-            </ul>
-        </div>
-        <div class="inquire-btn" onclick="document.getElementById('contact').scrollIntoView(); showHome();">ENQUIRE NOW</div>
-    </div>
-
-    <div id="service-networking" class="service-detail-page">
-        <div class="back-btn" onclick="showHome()">⬅ Back to Home</div>
-        <br><br>
-        <img src="images/network.jpg" class="detail-img">
-        <h2 class="detail-title">NETWORKING SOLUTIONS</h2>
-        <div class="detail-content">
-            <p>We provide end-to-end networking solutions for small to large offices.</p>
-            <ul>
-                <li>LAN / WAN Setup and Cabling.</li>
-                <li>Router, Switch, and Firewall Configuration.</li>
-                <li>Windows & Linux Server Installation.</li>
-                <li>Network Security & VPN Setup.</li>
-                <li>Wireless Networking Solutions.</li>
-            </ul>
-        </div>
-        <div class="inquire-btn" onclick="document.getElementById('contact').scrollIntoView(); showHome();">ENQUIRE NOW</div>
-    </div>
-
-    <div id="service-sales" class="service-detail-page">
-        <div class="back-btn" onclick="showHome()">⬅ Back to Home</div>
-        <br><br>
-        <img src="images/sales.jpeg" class="detail-img">
-        <h2 class="detail-title">IT SALES</h2>
-        <div class="detail-content">
-            <p>Best deals on New & Refurbished IT products.</p>
-            <ul>
-                <li>Brand New Laptops (Dell, HP, Lenovo, Asus).</li>
-                <li>Refurbished Corporate Laptops with Warranty.</li>
-                <li>Assembled Desktops for Gaming and Editing.</li>
-                <li>Computer Accessories (RAM, SSD, Keyboards, Mouse).</li>
-                <li>Antivirus and Genuine Software.</li>
-            </ul>
-        </div>
-        <div class="inquire-btn" onclick="document.getElementById('contact').scrollIntoView(); showHome();">ENQUIRE NOW</div>
-    </div>
+    </section>
 
     <footer>
-        <div class="footer-links">
-            <span onclick="openModal('aboutModal')">About Us</span>
-            <span onclick="openModal('privacyModal')">Privacy Policy</span>
-            <span onclick="openModal('termsModal')">Terms & Conditions</span>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>A R COMPUTERS</h4>
+                <p>Delivering Future-Ready IT Infrastructure Nationwide. Your trusted partner for AMC, Rentals, and Support in Mumbai.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">IT AMC Services</a></li>
+                    <li><a href="#services">Computer Rentals</a></li>
+                    <li><a href="#services">Network Installation</a></li>
+                    <li><a href="#services">Laptop Repair</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#audit">Free IT Audit</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
         </div>
         <div class="copyright">
-            Copyright © 2026 A R COMPUTERS. All Rights Reserved.
+            <p>Copyright © 2026 A R COMPUTERS. All Rights Reserved.</p>
         </div>
     </footer>
-
-    <div id="aboutModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('aboutModal')">×</span>
-            <h2>About Us</h2>
-            <p>A R COMPUTERS is a leading IT service provider in Mumbai, delivering excellence since 2012. We specialize in Hardware Repair, Rentals, and Networking solutions.</p>
-        </div>
-    </div>
-    <div id="privacyModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('privacyModal')">×</span>
-            <h2>Privacy Policy</h2>
-            <p>We respect your privacy. Any information collected via our forms is used solely for communication purposes and is never shared with third parties.</p>
-        </div>
-    </div>
-    <div id="termsModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('termsModal')">×</span>
-            <h2>Terms & Conditions</h2>
-            <p>1. Services are subject to availability.<br>2. AMC terms are defined in the contract.<br>3. Rental devices must be returned in good condition.</p>
-        </div>
-    </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
@@ -1055,47 +853,6 @@
         function closeNav() {
             document.getElementById("mySidebar").classList.remove("active");
             document.getElementById("menuOverlay").classList.remove("active");
-        }
-
-        // Service Page Logic (Single Page Application feel)
-        function showService(serviceId) {
-            // Hide Main Content
-            document.getElementById("main-content").style.display = "none";
-            // Hide all service pages first
-            var pages = document.getElementsByClassName("service-detail-page");
-            for (var i = 0; i < pages.length; i++) {
-                pages[i].style.display = "none";
-            }
-            // Show specific service page
-            var target = document.getElementById("service-" + serviceId);
-            if (target) {
-                target.style.display = "block";
-                window.scrollTo(0,0);
-            }
-        }
-
-        function showHome() {
-            // Hide all service pages
-            var pages = document.getElementsByClassName("service-detail-page");
-            for (var i = 0; i < pages.length; i++) {
-                pages[i].style.display = "none";
-            }
-            // Show Main Content
-            document.getElementById("main-content").style.display = "block";
-        }
-
-        // Modal Logic
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = "block";
-        }
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = "none";
-        }
-        // Close modal if clicked outside
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = "none";
-            }
         }
     </script>
 </body>
