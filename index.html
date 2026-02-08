@@ -68,7 +68,7 @@
             color: var(--brand);
             margin: 0;
             letter-spacing: 1px;
-            border-bottom: 2px solid #000; /* Full width line */
+            border-bottom: 2px solid #000;
             padding-bottom: 2px;
             display: inline-block;
             width: 100%;
@@ -171,15 +171,16 @@
             position: relative;
             z-index: 2;
             color: white;
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Poppins', sans-serif; /* Normal Font */
+            font-weight: 600;
             font-size: 2rem;
             text-align: center;
             padding: 20px;
-            text-shadow: 0 0 20px rgba(37, 150, 190, 0.8);
+            text-shadow: 0 0 20px rgba(0,0,0, 0.8);
             max-width: 900px;
         }
 
-        /* --- QUICK LINKS (Buttons) --- */
+        /* --- QUICK LINKS --- */
         .quick-links-section {
             padding: 30px 15px;
             background: #f8f9fa;
@@ -202,7 +203,7 @@
             text-decoration: none;
             color: #333;
             transition: 0.3s;
-            border: 2px solid transparent; /* Prepare for color border */
+            border: 2px solid transparent; 
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -211,7 +212,7 @@
         }
 
         .quick-card:hover {
-            transform: translateY(-8px); /* Bounce effect */
+            transform: translateY(-8px); 
             border-color: var(--brand);
         }
 
@@ -226,7 +227,6 @@
             font-weight: 700;
         }
 
-        /* Mobile specific: Last button full width */
         @media (max-width: 600px) {
             .hero-tagline { font-size: 1.2rem; }
             .quick-grid {
@@ -238,13 +238,11 @@
         }
 
         /* --- MAIN CONTENT WRAPPER --- */
-        #main-content {
-            display: block; /* Default visible */
-        }
+        #main-content { display: block; }
 
-        /* --- SERVICE DETAIL PAGES (Hidden by default) --- */
+        /* --- SERVICE DETAIL PAGES --- */
         .service-detail-page {
-            display: none; /* Hidden */
+            display: none;
             padding: 40px 20px;
             max-width: 800px;
             margin: 0 auto;
@@ -289,7 +287,7 @@
         .back-btn:hover { background: var(--brand); }
 
 
-        /* --- SERVICES LIST --- */
+        /* --- SERVICES LIST (HOME) --- */
         .section { padding: 60px 15px; }
         
         .section-title {
@@ -331,7 +329,8 @@
         .service-img {
             width: 100%;
             height: 250px;
-            object-fit: cover;
+            object-fit: contain; /* Full Image No Crop */
+            background-color: #fff; /* White background for fit */
             display: block;
         }
 
@@ -342,8 +341,26 @@
             line-height: 1.6;
         }
 
-        .inquire-btn {
+        /* Small Button for Home Cards */
+        .know-more-btn {
             display: inline-block;
+            padding: 8px 25px; /* Smaller */
+            background: var(--brand);
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: 0.3s;
+            text-transform: uppercase;
+            font-size: 0.8rem; /* Smaller Font */
+            cursor: pointer;
+        }
+        
+        .know-more-btn:hover { background: var(--brand-dark); }
+        
+        /* Big Button for Detail Page */
+        .inquire-btn {
+             display: inline-block;
             padding: 12px 35px;
             background: var(--brand);
             color: white;
@@ -354,22 +371,6 @@
             text-transform: uppercase;
             font-size: 0.9rem;
             cursor: pointer;
-        }
-        
-        .inquire-btn:hover { background: var(--brand-dark); }
-
-        /* Click Symbol Arrow */
-        .click-indicator {
-            margin-top: 10px;
-            color: var(--brand);
-            font-weight: bold;
-            font-size: 0.9rem;
-            display: block;
-            animation: moveRight 1s infinite alternate;
-        }
-        @keyframes moveRight {
-            from { transform: translateX(0); }
-            to { transform: translateX(10px); }
         }
 
         /* --- MARQUEE --- */
@@ -435,11 +436,22 @@
         .contact-left select, 
         .contact-left textarea {
             width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 4px;
+            padding: 15px; /* More padding */
+            border: 2px solid transparent;
+            border-radius: 6px;
             font-family: 'Poppins', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            background: #f9f9f9;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        
+        .contact-left input:focus, 
+        .contact-left select:focus, 
+        .contact-left textarea:focus {
+            outline: none;
+            border-color: #fff;
+            background: #fff;
         }
 
         .contact-left button {
@@ -448,15 +460,16 @@
             background: #28a745; 
             color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 1.1rem;
             cursor: pointer;
             transition: 0.3s;
             margin-top: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        .contact-left button:hover { background: #218838; }
+        .contact-left button:hover { background: #218838; transform: translateY(-2px); }
 
         /* Right: Info & Map (White) */
         .contact-right {
@@ -482,16 +495,30 @@
         .info-list p {
             margin-bottom: 15px;
             font-size: 1rem;
-            color: #000; /* Bold Black */
-            font-weight: 600;
+            color: #333; /* Normal color */
             display: flex;
             gap: 15px;
             align-items: flex-start;
         }
+        
         .info-list i { 
             color: var(--brand); 
             margin-top: 4px; 
             font-size: 1.2rem;
+        }
+        
+        .bold-num {
+            font-weight: 700;
+            color: #000;
+            font-size: 1.1rem;
+        }
+
+        .timing-separator {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 5px 0 0 35px; /* Align with text */
+            width: 80%;
         }
 
         .map-wrapper {
@@ -599,7 +626,6 @@
         .float-btn:hover { transform: scale(1.1); }
         .wa-float { background: var(--whatsapp); }
         
-        /* Pulse Animation for Call */
         .call-float { 
             background: var(--brand); 
             animation: pulse 2s infinite;
@@ -703,9 +729,8 @@
                     <img src="images/amc.png" alt="AMC" class="service-img">
                     <div class="service-desc">
                         Comprehensive Annual Maintenance Contracts to ensure your business runs without technical interruptions.
-                        <span class="click-indicator">View Details ➔</span>
                     </div>
-                    <div class="inquire-btn" onclick="showService('amc')">ENQUIRE NOW</div>
+                    <div class="know-more-btn" onclick="showService('amc')">Know More</div>
                 </div>
 
                 <div class="service-item" data-aos="fade-up">
@@ -713,9 +738,8 @@
                     <img src="images/rental.jpg" alt="Rental" class="service-img">
                     <div class="service-desc">
                         Affordable Laptops and Desktops on rent. Flexible daily, monthly, and yearly plans available.
-                        <span class="click-indicator">View Details ➔</span>
                     </div>
-                    <div class="inquire-btn" onclick="showService('rental')">ENQUIRE NOW</div>
+                    <div class="know-more-btn" onclick="showService('rental')">Know More</div>
                 </div>
 
                 <div class="service-item" data-aos="fade-up">
@@ -723,9 +747,8 @@
                     <img src="images/repair.jpg" alt="Repair" class="service-img">
                     <div class="service-desc">
                         Expert chip-level repairing for Motherboards, Laptops, Printers, and Data Recovery services.
-                        <span class="click-indicator">View Details ➔</span>
                     </div>
-                    <div class="inquire-btn" onclick="showService('repair')">ENQUIRE NOW</div>
+                    <div class="know-more-btn" onclick="showService('repair')">Know More</div>
                 </div>
 
                 <div class="service-item" data-aos="fade-up">
@@ -733,9 +756,8 @@
                     <img src="images/network.jpg" alt="Network" class="service-img">
                     <div class="service-desc">
                         Complete LAN/WAN setup, Server Installation, Cabling, and Network Security configuration.
-                        <span class="click-indicator">View Details ➔</span>
                     </div>
-                    <div class="inquire-btn" onclick="showService('networking')">ENQUIRE NOW</div>
+                    <div class="know-more-btn" onclick="showService('networking')">Know More</div>
                 </div>
 
                 <div class="service-item" data-aos="fade-up">
@@ -744,7 +766,7 @@
                     <div class="service-desc">
                         Professional G-Suite, Office 365, and Webmail solutions for secure business communication.
                     </div>
-                    <div class="inquire-btn" onclick="window.location.href='https://www.knoxit.in'">ENQUIRE NOW</div>
+                    <div class="know-more-btn" onclick="window.location.href='https://www.knoxit.in'">Know More</div>
                 </div>
 
                 <div class="service-item" data-aos="fade-up">
@@ -752,9 +774,8 @@
                     <img src="images/sales.jpeg" alt="Sales" class="service-img">
                     <div class="service-desc">
                         Best deals on New & Refurbished Laptops, Desktops, Accessories, and Peripherals.
-                        <span class="click-indicator">View Details ➔</span>
                     </div>
-                    <div class="inquire-btn" onclick="showService('sales')">ENQUIRE NOW</div>
+                    <div class="know-more-btn" onclick="showService('sales')">Know More</div>
                 </div>
 
                 <div class="service-item" data-aos="fade-up">
@@ -763,7 +784,7 @@
                     <div class="service-desc">
                         Responsive Website Development, Hosting, and Domain services to grow your online presence.
                     </div>
-                    <div class="inquire-btn" onclick="window.location.href='https://www.knoxit.in'">ENQUIRE NOW</div>
+                    <div class="know-more-btn" onclick="window.location.href='https://www.knoxit.in'">Know More</div>
                 </div>
 
             </div>
@@ -859,11 +880,27 @@
                     <div class="info-block">
                         <div class="info-title"><i class="fas fa-headset"></i> Get In Touch</div>
                         <div class="info-list">
-                            <p><i class="fas fa-phone-alt"></i> +91-8080802999</p>
-                            <p><i class="fas fa-mobile-alt"></i> +91-9320932044</p>
-                            <p><i class="fas fa-envelope"></i> info@abuit.in</p>
-                            <p><i class="fas fa-clock"></i> 9:30 AM to 6:30 PM (Sun Closed)</p>
-                            <p><i class="fas fa-map-marker-alt"></i> A R COMPUTERS, 1st floor, Group No.1, Tagore Nagar, Vikhroli East, Mumbai - 400083.</p>
+                            <p>
+                                <i class="fas fa-phone-volume"></i> 
+                                <span class="bold-num">+91-8080802999</span>
+                            </p>
+                            <p>
+                                <i class="fas fa-phone-volume"></i> 
+                                <span>+91-9320932044</span>
+                            </p>
+                            <p>
+                                <i class="fas fa-envelope"></i> 
+                                <span>info@abuit.in</span>
+                            </p>
+                            <p style="margin-bottom:0;">
+                                <i class="fas fa-clock"></i> 
+                                <span>9:30 AM to 6:30 PM (Sun Closed)</span>
+                            </p>
+                            <hr class="timing-separator">
+                            <p style="margin-top:15px;">
+                                <i class="fas fa-map-marker-alt"></i> 
+                                <span>A R COMPUTERS, 1st floor, Group No.1, Tagore Nagar, Vikhroli East, Mumbai - 400083.</span>
+                            </p>
                         </div>
                     </div>
                     
@@ -986,21 +1023,21 @@
 
     <div id="aboutModal" class="modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('aboutModal')">&times;</span>
+            <span class="close-modal" onclick="closeModal('aboutModal')">×</span>
             <h2>About Us</h2>
             <p>A R COMPUTERS is a leading IT service provider in Mumbai, delivering excellence since 2012. We specialize in Hardware Repair, Rentals, and Networking solutions.</p>
         </div>
     </div>
     <div id="privacyModal" class="modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('privacyModal')">&times;</span>
+            <span class="close-modal" onclick="closeModal('privacyModal')">×</span>
             <h2>Privacy Policy</h2>
             <p>We respect your privacy. Any information collected via our forms is used solely for communication purposes and is never shared with third parties.</p>
         </div>
     </div>
     <div id="termsModal" class="modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('termsModal')">&times;</span>
+            <span class="close-modal" onclick="closeModal('termsModal')">×</span>
             <h2>Terms & Conditions</h2>
             <p>1. Services are subject to availability.<br>2. AMC terms are defined in the contract.<br>3. Rental devices must be returned in good condition.</p>
         </div>
